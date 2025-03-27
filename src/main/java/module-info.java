@@ -3,6 +3,7 @@ module com.example.addressbook {
     requires javafx.fxml;
 
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 
     opens com.example.addressbook to javafx.fxml;
     exports com.example.addressbook;

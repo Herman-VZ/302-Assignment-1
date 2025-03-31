@@ -1,0 +1,73 @@
+User stories:  
+
+
+Herman:
+As a learner,  
+I want to browse and select AI lessons,  
+so that I can learn at my own pace and based on my interests.  
+Acceptance Criteria:  
+• Given I am on the homepage, when I browse lessons, then I should see a list of available topics.  
+• Given I select a lesson, when I click on it, then I should be taken to the lesson content.  
+
+As a learner,  
+I want to interact with AI simulations,  
+so that I can visually understand concepts like machine learning and neural networks.  
+Acceptance Criteria:  
+• Given I start a simulation, when I input different variables, then the simulation should respond in real time.  
+• Given I complete a simulation, when I exit, then my progress should be saved.  
+
+As a self-learner,  
+I want to take quizzes after lessons,  
+so that I can test my understanding and receive feedback.  
+Acceptance Criteria:  
+• Given I complete a quiz, when I submit my answers, then I should receive immediate feedback.  
+• Given I fail a quiz, when I review my results, then I should see explanations for incorrect answers.  
+
+As a user,  
+I want to track my learning progress,  
+so that I can see which lessons I have completed and my scores.  
+Acceptance Criteria:  
+• Given I complete a lesson or quiz, when I check my profile, then my progress should be updated.  
+• Given I revisit a lesson, when I view my progress, then I should see my past scores.  
+
+As a motivated learner,  
+I want to earn points and unlock achievements,  
+so that I stay engaged and motivated to continue learning.  
+Acceptance Criteria:  
+• Given I complete a lesson, when I check my profile, then my points should be updated.  
+• Given I reach a milestone, when I view my achievements, then I should see a new badge unlocked.  
+
+As a competitive learner,  
+I want to compare my progress with others,  
+so that I can stay motivated and challenge myself.  
+Acceptance Criteria:  
+• Given I enable leaderboards, when I check rankings, then I should see my position among other users.  
+• Given I complete a lesson, when I view the leaderboard, then my rank should update.  
+
+As a casual learner,  
+I want a friendly mascot to assist me,  
+so that learning feels more interactive and engaging.  
+Acceptance Criteria:  
+• Given I start a lesson, when I click on the mascot, then it should provide hints or encouragement.  
+• Given I struggle with a quiz, when I request help, then the mascot should offer tips.  
+
+As an explorer,  
+I want to choose between basic and advanced lesson levels,  
+so that I can learn at a depth that suits me.  
+Acceptance Criteria:  
+• Given I start a lesson, when I choose "basic" or "advanced," then the content should adjust accordingly.  
+• Given I change my preference mid-lesson, when I select a different depth, then my content should update.  
+
+As an administrator,  
+I want to manage user roles and permissions,  
+so that different types of users can access the appropriate features.  
+Acceptance Criteria:  
+• Given I log in as an admin, when I access user settings, then I should be able to change user roles.  
+• Given I remove a user, when they try to log in, then they should no longer have access.  
+
+As a focused learner,  
+I want the system to suggest lessons based on my progress,  
+so that I can continue learning efficiently.  
+Acceptance Criteria:  
+• Given I complete a lesson, when I return to the homepage, then I should see recommended next lessons.  
+• Given I perform poorly in a quiz, when I view suggestions, then I should see revision lessons.  

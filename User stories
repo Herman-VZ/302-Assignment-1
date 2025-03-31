@@ -71,3 +71,87 @@ so that I can continue learning efficiently.
 Acceptance Criteria:  
 • Given I complete a lesson, when I return to the homepage, then I should see recommended next lessons.  
 • Given I perform poorly in a quiz, when I view suggestions, then I should see revision lessons.  
+
+
+
+Kyle:
+User Story: Beginner Coder
+As a beginner to learning AI
+I want to earn points, achievements, and badges,
+So that I can motivate myself to learn everything about AI.
+Acceptance Criteria:
+Given I complete daily tasks and quizzes,
+When I go to my profile,
+Then I should see points, badges and achievements being added.
+
+User Story:  Competitive Coder
+As a competitive coder,
+I want to show off my high score on the leaderboard,
+So that I can push myself to get higher than my friends.
+Acceptance Criteria:
+Given I finish all tasks and quizzes with high scores,
+When I view the leaderboard,
+Then my rank and points should be increased.
+
+User Story: Teacher
+As a teacher,
+I want to watch over my student’s progress,
+So that I can see who needs help on areas or who isn’t doing the work.
+Acceptance Criteria:
+Given I login as a teacher,
+When I view the classroom leaderboard
+Then I should be able to go into students’ profiles and see scores and completions.
+
+User Story: Student
+As a student,
+I want to see my homework and tasks for the week and be able to choose a short entry lesson to understand it better
+So that I can stay on top of my learning and understand everything to the best of my ability
+Acceptance Criteria:
+Given I am on a lesson about neural networks,
+When I select “Basic Introduction”,
+Then I should be taught a basic rundown of the advanced learning material.
+
+User Story: Visual Learner
+As a visual learner,
+I want to be able to watch animated explanations of AI topics,
+So that I can understand everything in a way that suits me best.
+Acceptance Criteria:
+Given I select a lesson on machine learning,
+When I play the video,
+Then I can learn machine learning easier.
+
+User Story: Fast Leaner
+As a fast learner,
+I want to be able to advance quicker out of basic lessons,
+So that I don’t have to waste time.
+Acceptance Criteria:
+Given I take a beginner’s quiz on machine learning,
+When I score above 90%,
+Then the application should unlock harder content.
+
+User Story: Dark Mode User
+As a student who studies at night,
+I want a dark mode theme,
+So that I don’t strain my eyes.
+Acceptance Criteria:
+Given I am in the app settings,
+When I toggle to dark mode,
+Then the applications colour scheme should be dark.
+
+User Story: Peer Comments
+As a student not understanding a lesson,
+I want to read other students explanations of a certain topic,
+So that I can understand a difficult topic.
+Acceptance Criteria:
+Given I’m viewing a lesson on AI,
+When I scroll down to comments,
+Then I should see other students comments on that certain lesson with the most liked ones at the top and a search function.
+
+User Story: Professor
+As a University Professor,
+I want to upload my own questions for my students,
+So that I can use the app with my needs.
+Acceptance Criteria:
+Given I have university professor controls,
+When I upload my own teachings and questions,
+Then my students should see it in assigned work materials.

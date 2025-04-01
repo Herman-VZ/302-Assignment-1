@@ -155,3 +155,78 @@ Acceptance Criteria:
 Given I have university professor controls,
 When I upload my own teachings and questions,
 Then my students should see it in assigned work materials.
+
+Dasha:
+
+As a learner, I want to set weekly learning goals so I stay motivated and on track.
+Acceptance criteria:
+I can set a number of topics or quizzes to complete per week.
+A tracker shows my current progress.
+Notifications remind me if I fall behind.
+
+As a learner, I want to search for specific topics using keywords so that I can quickly find content I’m interested in.
+Acceptance Criteria:
+The search bar allows partial and full keyword matching.
+Search results update in real time and show topic titles.
+Clicking a result opens the corresponding content page.
+
+As a learner, I want a glossary of AI terms so that I can understand unfamiliar concepts as I learn.
+Acceptance Criteria:
+The glossary is accessible from the main navigation.
+Each term includes a simple definition and example.
+I can search and filter the glossary alphabetically.
+
+As a learner, I want to learn about AI ethics so that I can understand responsible use of AI technologies.
+Acceptance Criteria:
+The AI ethics module is available as part of the learning topics.
+It includes real-world examples and use cases.
+A quiz is available at the end to reinforce learning.
+
+
+As a learner, I want quizzes to have a timer so that I can practice under time constraints.
+Acceptance Criteria:
+Each quiz has an optional countdown timer.
+Timer duration is based on number of questions.
+If time runs out, unanswered questions are marked incomplete.
+
+As a learner, I want to track my learning streaks so that I stay motivated to study consistently.
+Acceptance Criteria:
+A streak counter is displayed on the dashboard.
+The streak is maintained if I complete any learning activity daily.
+I get a notification or visual feedback when I break or continue a streak.
+
+As a learner, I want to receive tips after scoring low on quizzes so that I know what to improve.
+Acceptance Criteria:
+After scoring below 50%, I receive personalised learning tips.
+Tips are based on the questions I got wrong.
+Suggestions link directly to relevant topics.
+
+As a learner, I want to receive tips after scoring low on quizzes so that I know what to improve.
+Acceptance Criteria:
+After scoring below 50%, I receive personalised learning tips.
+Tips are based on the questions I got wrong.
+Suggestions link directly to relevant topics.
+
+As a learner, I want to answer drag-and-drop questions in quizzes so that I can engage more interactively with the content.
+Acceptance Criteria:
+Questions involve matching terms, reordering steps, etc.
+Answers are validated immediately after drop.
+Feedback is given for correct and incorrect matches.
+
+As a teacher, I want to log in using a teacher account so that I can access features not available to students, such as creating classes and managing quizzes.
+Acceptance Criteria:
+Teacher accounts are authenticated with a role-based system.
+Upon login, teachers are redirected to a dashboard with teaching tools.
+Unauthorised users cannot access teacher-only features (maybe .edu email?).
+
+As a teacher, I want to create classes and host quizzes live so that my students can participate in real-time assessments.
+Acceptance Criteria:
+Teachers can create class sessions with unique join codes.
+Teachers can build custom quizzes for each class.
+Students can join a live session via a code and answer in real-time.
+
+As a teacher, I want a leaderboard to display after each quiz question so that students can see their ranking and stay motivated.
+Acceptance Criteria:
+A leaderboard appears after each question is answered during live quizzes.
+Rankings are based on speed and accuracy.
+The leaderboard updates in real-time and can be shown or hidden by the teacher.

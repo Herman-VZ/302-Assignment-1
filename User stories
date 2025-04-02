@@ -230,3 +230,60 @@ Acceptance Criteria:
 A leaderboard appears after each question is answered during live quizzes.
 Rankings are based on speed and accuracy.
 The leaderboard updates in real-time and can be shown or hidden by the teacher.
+
+Noah:
+User Story: AI Beginner
+As a beginner with AI topics, I want topics to start with the most basic information and gradually get more complex so that I can learn all about AI without being overwhelmed
+Acceptance Criteria:
+Given I am using the application
+When I start learning a new topic
+Then the lessons should become more complex as I work through them
+
+User Story: Points and Levels
+As a motivated learner, I want a points and leveling system for completing lessons and quizzes so that I can track my overall score and earn rewards
+Acceptance Criteria:
+Given I have completed a task
+When I exit the task 
+Then points should be added to my overall score, contributing to unlocking rewards
+
+User Story: Leaderboard
+As a competitive student, I want a global and friends leaderboard so that I can compare my progress with others and be motivated to improve
+Acceptance Criteria:
+Given I have completed tasks and earned points
+When I view the leaderboard
+Then I should be able to see my rank compared to others globally or within my friend group
+
+User Story: Themes
+As a user, I want to customise the visual theme of the application so that i can tailor the app’s appearance to my visual preferences and receive a more customised experience
+Acceptance Criteria:
+Given that I am in the app settings,
+When I select the themes option,
+I should be able to choose between various visual styles for the app
+
+User Story: Interactive Simulations
+As a learner, I want interactive and visual simulations so that I can learn about AI concepts in an engaging and simple manner
+Acceptance Criteria:
+Given that I am in a lesson
+When I interact with the simulation
+I should be able to manipulate the simulation to learn through observation
+
+User Story: MCQ Quizzes
+As a student, I want to do multiple choice questions and receive instant feedback on my quiz performance so that I can test my knowledge and see where I need to improve
+Acceptance Criteria:
+Given that I have completed a lesson
+When I take the quiz at the end of the lesson
+I should be able to answer a number of multiple choice questions and receive a final score
+
+User Story: Mascot
+As a user, I want a mascot that I can interact with, so that the experience is more personal and I can get tips when i’m stuck
+Acceptance Criteria:
+Given that I need help in a lesson or quiz
+When I click on the mascot
+I should receive advice on the section I am working on
+
+User Story: Teacher Progress Tracking
+As a teacher, I want to see the progress of students in my class so that I can know how much my students have learned and help any student who is behind
+Acceptance Criteria:
+Given that I log in as a teacher
+When I go to my class page
+I should see the progress of all of my students

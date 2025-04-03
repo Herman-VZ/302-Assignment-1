@@ -287,3 +287,74 @@ Acceptance Criteria:
 Given that I log in as a teacher
 When I go to my class page
 I should see the progress of all of my students
+
+Diego:
+User Story: Interactivity
+As a user, I want my learning to feel interactive and to be tricked into studying.
+Acceptence Criteria:
+Given that I need help in a lesson or quiz
+When I interact with the simulation
+I should be able to interact with the simulation in an engaging way
+
+User Story: Efficiency
+As a user, I want my application to respond and load fast
+Acceptence Criteria:
+Given that I am opening or manipulating data
+When I use the application
+I should not have to experience delays or lag when loading data
+
+User Story: Help within the application
+As a teacher, I want my application to be easy to understand and provide help when needed
+Acceptence Criteria:
+Given that I am exploring the application
+When I interact with the application
+I should have help information and instructions accessible detailing the applications features
+
+User story: Hard of Seeing
+As a visually impared persons, I want to be able to change the magnification of the application to utilize it better
+Acceptence Criteria:
+Given that I am interacting with the settings
+When I change the settings
+I should be able to change the size of images and text in the case I need to
+
+User story: Citing sources
+As a teacer, I want to be able to provide links for my students within my application for further learning
+Acceptence Criteria:
+Given that I am creating lessons
+When I am editing the contents of a lesson
+I should be able to provide links which work or hyperlinks to allow my students to access links
+
+User story: Trading lessons
+As a teacher, I want to be able to send my students lessons within an easily readable file
+Acceptence Criteria:
+Given that I am creating lessons
+When I create new lessons
+I should be able to send the lesson to my students which should be readable on the end of the students
+
+User story:
+As a
+Acceptence Criteria:
+Given that
+When I
+I should
+
+User story
+As a
+Acceptence Criteria:
+Given that
+When I
+I should
+
+User story
+As a
+Acceptence Criteria:
+Given that
+When I
+I should
+
+User story
+As a
+Acceptence Criteria:
+Given that
+When I
+I should

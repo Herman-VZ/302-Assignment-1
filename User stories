@@ -331,30 +331,30 @@ Given that I am creating lessons
 When I create new lessons
 I should be able to send the lesson to my students which should be readable on the end of the students
 
-User story:
-As a
+User story: Randomize question order
+As a learner I want to change the order of the questions I recieve
 Acceptence Criteria:
-Given that
-When I
-I should
+Given that I am attempting to complete a lesson
+When I initiate a lesson
+I should recieve the questions in a random order
 
-User story
-As a
+User story: Play ambient music
+As a student, I want to have ambient music play when I am studying
 Acceptence Criteria:
-Given that
-When I
-I should
+Given that I am in the application
+When I open the applicationl
+I should enable or disable music to play
 
-User story
-As a
+User story: Keep track of learning
+As a student, I want to see how many times I completed a lesson
 Acceptence Criteria:
-Given that
-When I
-I should
+Given that I have completed the lesson
+When I finish a quiz
+I should be able to see the number of times I have completed a lesson
 
-User story
-As a
+User story: History
+As a student, I want to keep track of all instances I saved a quiz progress to see how I did
 Acceptence Criteria:
-Given that
-When I
-I should
+Given that I save my quiz instances
+When I finish a quiz
+I should be able to see how I did and a list of all my results

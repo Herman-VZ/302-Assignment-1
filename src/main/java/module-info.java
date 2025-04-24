@@ -1,10 +1,8 @@
-module com.example.addressbook {
+module com.example.learnscreen {
     requires javafx.controls;
     requires javafx.fxml;
 
-    requires org.kordamp.bootstrapfx.core;
-    requires java.desktop;
 
-    opens com.example.addressbook to javafx.fxml;
-    exports com.example.addressbook;
+    opens com.example.learnscreen to javafx.fxml;
+    exports com.example.learnscreen;
 }

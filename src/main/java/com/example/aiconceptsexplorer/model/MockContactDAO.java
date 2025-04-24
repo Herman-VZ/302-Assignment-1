@@ -1,4 +1,4 @@
-package com.example.addressbook;
+package com.example.aiconceptsexplorer.model;
 
 import java.util.ArrayList;
 import java.util.List;

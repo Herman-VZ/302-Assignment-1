@@ -1,4 +1,4 @@
-package com.example.addressbook;
+package com.example.aiconceptsexplorer;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

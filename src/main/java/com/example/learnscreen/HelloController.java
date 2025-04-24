@@ -15,6 +15,18 @@ public class HelloController {
     private VBox quizOptions;
     @FXML
     private VBox glossaryOptions;
+    @FXML
+    private javafx.scene.shape.Polygon continueLessonDiamond;
+    @FXML
+    private javafx.scene.shape.Polygon searchLessonDiamond;
+    @FXML
+    private javafx.scene.shape.Polygon continueQuizDiamond;
+    @FXML
+    private javafx.scene.shape.Polygon searchQuizDiamond;
+    @FXML
+    private javafx.scene.shape.Polygon continueGlossaryDiamond; 
+    @FXML
+    private javafx.scene.shape.Polygon searchGlossaryDiamond;
 
     public void onFirstButtonClick(ActionEvent actionEvent) {
 
@@ -30,23 +42,31 @@ public class HelloController {
     public void onLessonButtonClick(ActionEvent actionEvent) {
         toggleVisibility(lessonOptions);
     }
-    public void onContinueLessonButtonClick(ActionEvent actionEvent) {
 
+    public void onContinueLessonButtonClick(ActionEvent actionEvent) {
+        continueLessonDiamond.setFill(javafx.scene.paint.Color.WHITE);
+        searchLessonDiamond.setFill(javafx.scene.paint.Color.GRAY);
     }
     public void onSearchLessonButtonClick(ActionEvent actionEvent) {
-
+        searchLessonDiamond.setFill(javafx.scene.paint.Color.WHITE);
+        continueLessonDiamond.setFill(javafx.scene.paint.Color.GRAY);
     }
-    public void onContinueQuizButtonClick(ActionEvent actionEvent) {
 
+    public void onContinueQuizButtonClick(ActionEvent actionEvent) {
+        continueQuizDiamond.setFill(javafx.scene.paint.Color.WHITE);
+        searchQuizDiamond.setFill(javafx.scene.paint.Color.GRAY);
     }
     public void onSearchQuizButtonClick(ActionEvent actionEvent) {
-
+        searchQuizDiamond.setFill(javafx.scene.paint.Color.WHITE);
+        continueQuizDiamond.setFill(javafx.scene.paint.Color.GRAY);
     }
     public void onContinueGlossaryButtonClick(ActionEvent actionEvent) {
-
+        continueGlossaryDiamond.setFill(javafx.scene.paint.Color.WHITE);
+        searchGlossaryDiamond.setFill(javafx.scene.paint.Color.GRAY);
     }
     public void onSearchGlossaryButtonClick(ActionEvent actionEvent) {
-
+        searchGlossaryDiamond.setFill(javafx.scene.paint.Color.WHITE);
+        continueGlossaryDiamond.setFill(javafx.scene.paint.Color.GRAY);
     }
     public void onQuizButtonClick(ActionEvent actionEvent) {
         toggleVisibility(quizOptions);

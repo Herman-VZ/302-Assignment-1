@@ -96,33 +96,33 @@
 
                 <VBox fx:id="lessonOptions" spacing="10" visible="false">
                     <HBox alignment="CENTER_LEFT" spacing="10">
-                        <Polygon fill="white" points="5,0,10,5,5,10,0,5" />
+                        <Polygon fx:id="continueLessonDiamond" fill="white" points="5,0,10,5,5,10,0,5" />
                         <Button onAction="#onContinueLessonButtonClick" text="Continue lessons" />
                     </HBox>
                     <HBox alignment="CENTER_LEFT" spacing="10">
-                        <Polygon fill="gray" points="5,0,10,5,5,10,0,5" />
+                        <Polygon fx:id="searchLessonDiamond" fill="gray" points="5,0,10,5,5,10,0,5" />
                         <Button onAction="#onSearchLessonButtonClick" text="Search for new lessons" />
                     </HBox>
                 </VBox>
 
                 <VBox fx:id="quizOptions" spacing="10" visible="false">
                     <HBox alignment="CENTER_LEFT" spacing="10">
-                        <Polygon fill="white" points="5,0,10,5,5,10,0,5" />
+                        <Polygon fx:id="continueQuizDiamond" fill="white" points="5,0,10,5,5,10,0,5" />
                         <Button onAction="#onContinueQuizButtonClick" text="Continue quiz" />
                     </HBox>
                     <HBox alignment="CENTER_LEFT" spacing="10">
-                        <Polygon fill="gray" points="5,0,10,5,5,10,0,5" />
+                        <Polygon fx:id="searchQuizDiamond" fill="gray" points="5,0,10,5,5,10,0,5" />
                         <Button onAction="#onSearchQuizButtonClick" text="Search for new quizzes" />
                     </HBox>
                 </VBox>
 
                 <VBox fx:id="glossaryOptions" spacing="10" visible="false">
                     <HBox alignment="CENTER_LEFT" spacing="10">
-                        <Polygon fill="white" points="5,0,10,5,5,10,0,5" />
+                        <Polygon fx:id="continueGlossaryDiamond" fill="white" points="5,0,10,5,5,10,0,5" />
                         <Button onAction="#onContinueGlossaryButtonClick" text="Continue glossary" />
                     </HBox>
                     <HBox alignment="CENTER_LEFT" spacing="10">
-                        <Polygon fill="gray" points="5,0,10,5,5,10,0,5" />
+                        <Polygon fx:id="searchGlossaryDiamond" fill="gray" points="5,0,10,5,5,10,0,5" />
                         <Button onAction="#onSearchGlossaryButtonClick" text="Search for new words" />
                     </HBox>
                 </VBox>

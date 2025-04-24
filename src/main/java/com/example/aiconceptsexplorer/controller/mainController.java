@@ -1,10 +1,12 @@
-package com.example.addressbook;
+package com.example.aiconceptsexplorer.controller;
 
+import com.example.aiconceptsexplorer.model.Contact;
+import com.example.aiconceptsexplorer.model.IContactDAO;
+import com.example.aiconceptsexplorer.model.MockContactDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.util.List;

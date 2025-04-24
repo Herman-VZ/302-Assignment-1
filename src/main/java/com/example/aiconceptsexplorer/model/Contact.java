@@ -1,4 +1,4 @@
-package com.example.addressbook;
+package com.example.aiconceptsexplorer.model;
 
 public class Contact {
     private int id;

@@ -1,5 +1,6 @@
-package com.example.addressbook;
+package com.example.aiconceptsexplorer.controller;
 
+import com.example.aiconceptsexplorer.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

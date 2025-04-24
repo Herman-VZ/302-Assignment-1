@@ -4,6 +4,7 @@ module com.example.aiconceptsexplorer {
 
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
+    requires java.sql;
 
     opens com.example.aiconceptsexplorer to javafx.fxml;
     exports com.example.aiconceptsexplorer;

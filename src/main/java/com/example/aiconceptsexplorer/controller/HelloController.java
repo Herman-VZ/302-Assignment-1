@@ -38,6 +38,14 @@ public class HelloController {
     }
 
     @FXML
+    protected void onSignupButtonClick() throws IOException {
+        Stage stage = (Stage) nextButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("signup-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
+    }
+
+    @FXML
     public void initialize() {
         termsAndConditions.setText("""
 Lorem ipsum dolor sit amet, consectetur adipiscing elit,

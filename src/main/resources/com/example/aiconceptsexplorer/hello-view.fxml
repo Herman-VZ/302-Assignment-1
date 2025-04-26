@@ -15,6 +15,6 @@
     <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
         <Button onAction="#onCancelButtonClick" text="Cancel" />
         <Button fx:id="nextButton" disable="true" onAction="#onNextButtonClick" text="Next" />
-      <Button mnemonicParsing="false" text="Sign up" />
+      <Button mnemonicParsing="false" text="Sign up" onAction="#onSignupButtonClick"/>
     </HBox>
 </VBox>

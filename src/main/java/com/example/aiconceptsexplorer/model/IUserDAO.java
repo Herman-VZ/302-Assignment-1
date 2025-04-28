@@ -25,4 +25,11 @@ public interface IUserDAO {
      * @return true if the email and password match a user account, false otherwise
      */
     public boolean loginUser(String email, String password);
+
+    /**
+     * Checks if the inputted email is already used for another user
+     * @param user the user that is being signed up
+     * @return false if the email is a duplicate, true if it is valid
+     */
+    public boolean validateEmail(User user);
 }

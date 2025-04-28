@@ -72,5 +72,23 @@ public class SqliteUserDAO implements IUserDAO {
         return false;
     }
 
+    @Override
+    public boolean validateEmail(User user) {
+        String userEmail = user.getEmail();
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM users WHERE email = ?");
+            statement.setString(1,userEmail);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()){
+                int check = resultSet.getInt("count");
+                return check != 1;
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 }

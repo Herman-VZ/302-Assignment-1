@@ -14,7 +14,7 @@
         <TextField fx:id="email" promptText="Email" />
         <PasswordField fx:id="password" promptText="Password" />
         <Button mnemonicParsing="false" onAction="#onLogin" text="Log In" />
-      <Label textFill="RED" />
+        <Label fx:id="errorLabel" textFill="RED" />
         <Label text="Don't have an account?" />
         <Button fx:id="signupButton" mnemonicParsing="false" onAction="#onSignupRedirect" text="Sign Up" />
     </children>

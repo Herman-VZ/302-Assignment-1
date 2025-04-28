@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -27,6 +28,9 @@ public class loginController {
     @FXML
     private Button signupButton;
 
+    @FXML
+    private Label errorLabel;
+
     public loginController() {
         newUserDAO = new SqliteUserDAO();
     }
@@ -36,6 +40,9 @@ public class loginController {
         String userEmail = email.getText();
         String userPassword = password.getText();
         boolean loginCheck = newUserDAO.loginUser(userEmail, userPassword);
+        if (!loginCheck){
+            errorLabel.setText("Incorrect email or password, please try again");
+        }
     }
 
     @FXML

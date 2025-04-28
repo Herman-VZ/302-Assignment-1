@@ -7,16 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-public class HelloController {
+public class LessonController {
     @FXML
     private VBox lessonOptions;
     @FXML
@@ -50,7 +46,6 @@ public class HelloController {
     private SelectedOption mostRecentSelection = SelectedOption.NONE;
 
     public void onFirstButtonClick(ActionEvent actionEvent) {
-
     }
 
     public void onSecondButtonClick(ActionEvent actionEvent) {
@@ -98,14 +93,7 @@ public class HelloController {
     }
 
     public void onContinueGlossaryButtonClick(ActionEvent actionEvent) {
-        continueGlossaryDiamond.setFill(javafx.scene.paint.Color.WHITE);
-        searchGlossaryDiamond.setFill(javafx.scene.paint.Color.GRAY);
         mostRecentSelection = SelectedOption.GLOSSARY_CONTINUE;
-    }
-
-    public void onSearchGlossaryButtonClick(ActionEvent actionEvent) {
-        searchGlossaryDiamond.setFill(javafx.scene.paint.Color.WHITE);
-        continueGlossaryDiamond.setFill(javafx.scene.paint.Color.GRAY);
     }
 
     public void onConfirmButtonClick(ActionEvent actionEvent) {
@@ -125,9 +113,6 @@ public class HelloController {
             case GLOSSARY_CONTINUE:
                 loadPage("ContinueGlossary.fxml");
                 break;
-            case GLOSSARY_SEARCH:
-                loadPage("SearchGlossary.fxml");
-                break;
             case NONE:
                 showError("Please select an option first!");
                 break;
@@ -145,7 +130,7 @@ public class HelloController {
     private void loadPage(String fxmlFile) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
-            Stage stage = (Stage) confirmButton.getScene().getWindow(); // Replace with your Confirm button
+            Stage stage = (Stage) confirmButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

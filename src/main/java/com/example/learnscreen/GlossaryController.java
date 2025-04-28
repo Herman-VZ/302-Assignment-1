@@ -1,17 +1,36 @@
 package com.example.learnscreen;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GlossaryController {
-    public void onFirstButtonClick(ActionEvent actionEvent) {
 
+    public void onFirstButtonClick(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("learn.fxml"));
+        Parent root = loader.load();
+
+        // Get the current stage (window)
+        Stage stage = (Stage) glossaryList.getScene().getWindow();
+
+        // Set the new scene
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void onSecondButtonClick(ActionEvent actionEvent) {
@@ -28,12 +47,19 @@ public class GlossaryController {
     @FXML
     private Label definitionLabel;
 
-    // A map of words to their definitions
+    @FXML
+    private TextField searchField;
+
+
     private Map<String, String> glossaryDefinitions = new HashMap<>();
+
+    private ObservableList<String> glossaryWords = FXCollections.observableArrayList();
+
+    private static String lastSearchText = "";
+    private static boolean continueFromLastSearch = false;
 
     @FXML
     public void initialize() {
-        // Add glossary terms and definitions
         glossaryDefinitions.put("Machine Learning", "A field of AI that enables systems to learn from data without being explicitly programmed.");
         glossaryDefinitions.put("Supervised Learning", "A type of ML where the model is trained on labeled data with known outputs.");
         glossaryDefinitions.put("Unsupervised Learning", "A type of ML where the model finds hidden patterns in data without labeled outputs.");
@@ -50,21 +76,35 @@ public class GlossaryController {
         glossaryDefinitions.put("Polymorphism", "One interface, many implementations.");
         glossaryDefinitions.put("Inheritance", "One class can inherit fields and methods from another.");
 
-        glossaryList.getItems().addAll(glossaryDefinitions.keySet());
+        glossaryWords.addAll(glossaryDefinitions.keySet());
+        glossaryList.setItems(glossaryWords);
 
-        // When a word is clicked, show its definition
-        glossaryList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                definitionLabel.setText(glossaryDefinitions.get(newValue));
-            }
+        // Auto-select first item
+        if (!glossaryList.getItems().isEmpty()) {
+            glossaryList.getSelectionModel().selectFirst();
+        }
+
+        // Search functionality
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterGlossary(newValue);
         });
     }
 
-    private void showDefinitionPopup(String term, String definition) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Definition");
-        alert.setHeaderText(term);
-        alert.setContentText(definition);
-        alert.showAndWait();
+    private void filterGlossary(String searchText) {
+        ObservableList<String> filteredWords = FXCollections.observableArrayList();
+
+        for (String word : glossaryDefinitions.keySet()) {
+            String definition = glossaryDefinitions.get(word);
+            if (word.toLowerCase().contains(searchText.toLowerCase()) ||
+                    definition.toLowerCase().contains(searchText.toLowerCase())) {
+                filteredWords.add(word);
+            }
+        }
+
+        glossaryList.setItems(filteredWords);
+
+        if (!filteredWords.isEmpty()) {
+            glossaryList.getSelectionModel().selectFirst();
+        }
     }
 }

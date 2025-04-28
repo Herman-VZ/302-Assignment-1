@@ -7,10 +7,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 
-public class HelloApplication extends Application {
+public class LeaderApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Connection connection = DatabaseConnection.connect();
+        Connection connection = LeaderDatabaseConnection.connect();
         UserDAO userDAO = new UserDAO();
 
         // Initialize with sample data if empty
@@ -21,7 +21,7 @@ public class HelloApplication extends Application {
             userDAO.updateScore("John Doe", 1600);
         }
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LeaderApplication.class.getResource("leaderboard-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         stage.setTitle("Leaderboard");
         stage.setScene(scene);

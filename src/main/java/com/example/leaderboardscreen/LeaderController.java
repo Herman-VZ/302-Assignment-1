@@ -7,13 +7,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import java.util.List;
 
-public class HelloController {
-    @FXML
-    private ListView<String> userListView;
+public class LeaderController {
+    @FXML private ListView<String> userListView;
+    private Runnable navigateToAccount;
 
     @FXML
     public void initialize() {
         refreshLeaderboard();
+    }
+
+    public void setNavigationToAccount(Runnable navigationHandler) {
+        this.navigateToAccount = navigationHandler;
     }
 
     public void refreshLeaderboard() {
@@ -23,15 +27,20 @@ public class HelloController {
         userListView.setItems(observableLeaderboard);
     }
 
+    @FXML
     public void onFirstButtonClick(ActionEvent actionEvent) {
-        refreshLeaderboard(); // Refresh when button is clicked
+        if (navigateToAccount != null) {
+            navigateToAccount.run();
+        }
     }
 
+    @FXML
     public void onSecondButtonClick(ActionEvent actionEvent) {
-        // Add your functionality here
+        refreshLeaderboard();
     }
 
+    @FXML
     public void onThirdButtonClick(ActionEvent actionEvent) {
-        // Add your functionality here
+        // Existing third button functionality
     }
 }

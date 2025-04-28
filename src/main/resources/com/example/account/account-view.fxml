@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: #696773;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.account.AccountController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <!-- Raised grey banner -->
+    <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="760.0" spacing="20.0" style="-fx-background-color: #363946; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5);">
+        <Button onAction="#onLearnTabClick" prefHeight="43.0" prefWidth="100.0" style="-fx-background-color: #696773; -fx-text-fill: white;" text="Learn" />
+        <!-- In the HBox banner section -->
+        <Button onAction="#onLeaderboardTabClick" prefHeight="43.0" prefWidth="120.0"
+                style="-fx-background-color: #696773; -fx-text-fill: white;"
+                text="Leaderboard" textAlignment="CENTER" />
+        <Region HBox.hgrow="ALWAYS" />
+        <ImageView fitHeight="40.0" fitWidth="40.0" preserveRatio="true">
+            <image>
+                <Image url="@10337609.png" />
+            </image>
+        </ImageView>
+        <Button mnemonicParsing="false" onAction="#OnUserInfoClick" prefHeight="28.0" prefWidth="91.0" style="-fx-background-color: #696773; -fx-text-fill: white;" text="User Info" />
+    </HBox>
+
+    <!-- Main Content Area -->
+    <VBox alignment="TOP_CENTER" prefHeight="460.0" prefWidth="684.0" spacing="20.0" style="-fx-background-color: #B1B6A6; -fx-background-radius: 2; -fx-padding: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5); -fx-border-color: #363946; -fx-border-width: 10;">
+
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="25.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="39.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="86.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="25.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <HBox prefHeight="120.0" prefWidth="600.0" GridPane.columnIndex="1" GridPane.rowIndex="3" spacing="50.0" alignment="CENTER" style="-fx-padding: 60 0 0 20;">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#TrophyDisplay1" prefHeight="100.0" prefWidth="100.0" text="display 1"
+                                style="-fx-background-radius: 50; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-background-color: #696773; -fx-text-fill: white;"/>
+                        <Button mnemonicParsing="false" onAction="#TrophyDisplay2" prefHeight="100.0" prefWidth="100.0" text="display 2"
+                                style="-fx-background-radius: 50; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-background-color: #696773; -fx-text-fill: white;" />
+                        <Button mnemonicParsing="false" onAction="#TrophyDisplay3" prefHeight="100.0" prefWidth="100.0" text="display 3"
+                                style="-fx-background-radius: 50; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-background-color: #696773; -fx-text-fill: white;" />
+                    </children>
+                </HBox>
+                <Text fx:id="profileNameText" strokeType="OUTSIDE" text="Profile Name" textOrigin="CENTER" wrappingWidth="110" GridPane.rowIndex="3" GridPane.columnIndex="0"
+                        style="-fx-font-size: 30px; -fx-fill: white;"/>
+                <ImageView fitHeight="100.0" fitWidth="100.0" preserveRatio="true" GridPane.rowIndex="1">
+                    <image>
+                        <Image url="@10337609.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </GridPane>
+
+        <!-- Spacer to push bottom buttons lower -->
+        <Region VBox.vgrow="ALWAYS" />
+
+
+        <!-- Bottom "Buttons" Section - now using styled Text instead of Buttons -->
+        <HBox prefHeight="80.0" spacing="20.0" alignment="CENTER" style="-fx-background-color: #73A580;">
+            <children>
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Text fx:id="latestLessonText" text="Latest Lesson" style="-fx-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-color: #5e8b7e; -fx-background-radius: 10; -fx-padding: 10px 20px;"/>
+                <Text fx:id="currentStreakText" text="Current Streak" style="-fx-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-color: #5e8b7e; -fx-background-radius: 10; -fx-padding: 10px 20px;"/>
+                <Text fx:id="latestAchievementText" text="Latest Achievement" style="-fx-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-color: #5e8b7e; -fx-background-radius: 10; -fx-padding: 10px 20px;"/>
+                <Region HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+
+    </VBox>
+</VBox>

@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DatabaseConnection {
+public class LeaderDatabaseConnection {
     private static final String DB_URL = "jdbc:sqlite:leaderboard.db";
 
     public static Connection connect() {

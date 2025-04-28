@@ -8,7 +8,7 @@ public class UserDAO {
     private Connection connection;
 
     public UserDAO() {
-        this.connection = DatabaseConnection.connect();
+        this.connection = LeaderDatabaseConnection.connect();
     }
 
     public List<String> getLeaderboard() {

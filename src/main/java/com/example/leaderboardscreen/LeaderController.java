@@ -1,34 +1,40 @@
 package com.example.leaderboardscreen;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import java.util.List;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LeaderController {
-    @FXML private ListView<String> userListView;
+
+    @FXML
+    private ListView<String> userListView;
+
     private Runnable navigateToAccount;
+    private Runnable navigateToLearn;
 
     @FXML
     public void initialize() {
         refreshLeaderboard();
     }
 
-    public void setNavigationToAccount(Runnable navigationHandler) {
-        this.navigateToAccount = navigationHandler;
+    public void setNavigation(Runnable toAccount, Runnable toLearn) {
+        this.navigateToAccount = toAccount;
+        this.navigateToLearn = toLearn;
     }
 
-    public void refreshLeaderboard() {
-        UserDAO userDAO = new UserDAO();
-        List<String> leaderboard = userDAO.getLeaderboard();
-        ObservableList<String> observableLeaderboard = FXCollections.observableArrayList(leaderboard);
-        userListView.setItems(observableLeaderboard);
+    private void refreshLeaderboard() {
+        userListView.getItems().clear();
+        userListView.getItems().addAll("User1 - 1000 points", "User2 - 900 points", "User3 - 850 points");
     }
 
     @FXML
-    public void onFirstButtonClick(ActionEvent actionEvent) {
+    public void onFirstButtonClick(ActionEvent actionEvent) throws IOException {
         if (navigateToAccount != null) {
             navigateToAccount.run();
         }
@@ -40,7 +46,9 @@ public class LeaderController {
     }
 
     @FXML
-    public void onThirdButtonClick(ActionEvent actionEvent) {
-        // Existing third button functionality
+    public void onThirdButtonClick(ActionEvent actionEvent) throws IOException {
+        if (navigateToLearn != null) {
+            navigateToLearn.run();
+        }
     }
 }

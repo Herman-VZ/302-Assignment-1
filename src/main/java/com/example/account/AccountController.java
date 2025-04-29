@@ -3,9 +3,9 @@ package com.example.account;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -19,17 +19,20 @@ public class AccountController {
     @FXML private Text currentStreakText;
     @FXML private Text latestAchievementText;
 
+    private Runnable navigateToLeaderboard;
+    private Runnable navigateToLearn;
+
     private List<String> userNames;
     private int currentUserIndex = 0;
-    private Runnable navigateToLeaderboard;
 
     @FXML
     public void initialize() {
         loadAllUserNames();
     }
 
-    public void setNavigationToLeaderboard(Runnable navigationHandler) {
-        this.navigateToLeaderboard = navigationHandler;
+    public void setNavigation(Runnable toLeaderboard, Runnable toLearn) {
+        this.navigateToLeaderboard = toLeaderboard;
+        this.navigateToLearn = toLearn;
     }
 
     private void loadAllUserNames() {
@@ -121,6 +124,8 @@ public class AccountController {
 
     @FXML
     public void onLearnTabClick(ActionEvent actionEvent) {
-        // Existing learn tab functionality
+        if (navigateToLearn != null) {
+            navigateToLearn.run();
+        }
     }
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.aiconceptsexplorer.controller.HomeScreenController"
+            prefWidth="1000.0" prefHeight="700.0">
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox spacing="20" style="-fx-background-color: #92B9BD;">
+            <padding>
+                <Insets top="15" bottom="15" left="20" right="20"/>
+            </padding>
+            <Button text="Learn" />
+            <Button text="Leaderboard" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <VBox alignment="CENTER">
+                <ImageView fitWidth="40" fitHeight="40"/>
+                <Label text="User Info"/>
+            </VBox>
+        </HBox>
+    </top>
+
+    <!-- Left Leaderboard -->
+    <left>
+        <VBox spacing="10" style="-fx-background-color: #E8EC67;" prefWidth="200" prefHeight="700">
+            <padding>
+                <Insets top="15" bottom="15" left="15" right="15"/>
+            </padding>
+            <Label text="Leaderboard" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <ListView fx:id="leaderboardList" prefWidth="180"/>
+        </VBox>
+    </left>
+
+    <!-- Center Lessons -->
+    <center>
+        <VBox spacing="20" style="-fx-background-color: #F2F79E;" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="20" bottom="20" left="20" right="20"/>
+            </padding>
+            <Label text="Continue Last Lesson:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Button text="Lesson name here" prefWidth="200"/>
+            <Label text="Suggested Lessons:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <VBox spacing="10">
+                <Button text="Suggested Lesson 1" prefWidth="200"/>
+                <Button text="Suggested Lesson 2" prefWidth="200"/>
+                <Button text="Suggested Lesson 3" prefWidth="200"/>
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- Right Weekly Goals -->
+    <right>
+        <VBox spacing="10" style="-fx-background-color: #E8EC67;" prefWidth="250">
+            <padding>
+                <Insets top="15" bottom="15" left="15" right="15"/>
+            </padding>
+            <Label text="Weekly Goals:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <GridPane hgap="10" vgap="10">
+                <Label text="Status"/>
+                <Label text="Goal" GridPane.columnIndex="1"/>
+                <TextField GridPane.rowIndex="1"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <TextField GridPane.rowIndex="2"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <TextField GridPane.rowIndex="3"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            </GridPane>
+            <Button text="Add New Goal" prefWidth="150" />
+        </VBox>
+    </right>
+
+</BorderPane>

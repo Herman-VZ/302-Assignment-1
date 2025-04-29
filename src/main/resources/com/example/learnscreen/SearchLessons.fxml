@@ -13,7 +13,7 @@
     </padding>
 
     <!-- Raised grey banner -->
-    <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0" style="-fx-background-color: #48494a;                  -fx-padding: 10px;                  -fx-background-radius: 5;                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+    <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0" style="-fx-background-color: #48494a;-fx-padding: 10px;-fx-background-radius: 5;                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
       <Region prefHeight="47.0" prefWidth="44.0" />
         <Button onAction="#onFirstButtonClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #686b6e; -fx-text-fill: white;" text="Learn" />
       <Region prefHeight="47.0" prefWidth="115.0" />
@@ -46,7 +46,7 @@
       </Button>
     </HBox>
 
-    <HBox alignment="TOP_CENTER" prefHeight="600" prefWidth="1100" spacing="20.0" style="-fx-background-color: #48494a;              -fx-background-radius: 5;              -fx-padding: 20px;              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+    <HBox alignment="TOP_CENTER" prefHeight="600" prefWidth="1100" spacing="20.0" style="-fx-background-color: #48494a;-fx-background-radius: 5;-fx-padding: 20px;-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
 
     </HBox>
 </VBox>

@@ -86,38 +86,38 @@ public class LessonController {
     }
 
     public void onContinueLessonButtonClick(ActionEvent actionEvent) {
-        continueLessonDiamond.setFill(javafx.scene.paint.Color.WHITE);
-        searchLessonDiamond.setFill(javafx.scene.paint.Color.GRAY);
+        continueLessonDiamond.setFill(javafx.scene.paint.Color.web("#E6E6E6"));
+        searchLessonDiamond.setFill(javafx.scene.paint.Color.web("#A6A6A6"));
         mostRecentSelection = SelectedOption.LESSONS_CONTINUE;
     }
 
     public void onSearchLessonButtonClick(ActionEvent actionEvent) {
-        searchLessonDiamond.setFill(javafx.scene.paint.Color.WHITE);
-        continueLessonDiamond.setFill(javafx.scene.paint.Color.GRAY);
+        searchLessonDiamond.setFill(javafx.scene.paint.Color.web("#E6E6E6"));
+        continueLessonDiamond.setFill(javafx.scene.paint.Color.web("#A6A6A6"));
         mostRecentSelection = SelectedOption.LESSONS_SEARCH;
     }
 
     public void onContinueQuizButtonClick(ActionEvent actionEvent) {
-        continueQuizDiamond.setFill(javafx.scene.paint.Color.WHITE);
-        searchQuizDiamond.setFill(javafx.scene.paint.Color.GRAY);
+        continueQuizDiamond.setFill(javafx.scene.paint.Color.web("#E6E6E6"));
+        searchQuizDiamond.setFill(javafx.scene.paint.Color.web("#A6A6A6"));
         mostRecentSelection = SelectedOption.QUIZ_CONTINUE;
     }
 
     public void onSearchQuizButtonClick(ActionEvent actionEvent) {
-        searchQuizDiamond.setFill(javafx.scene.paint.Color.WHITE);
-        continueQuizDiamond.setFill(javafx.scene.paint.Color.GRAY);
+        searchQuizDiamond.setFill(javafx.scene.paint.Color.web("#E6E6E6"));
+        continueQuizDiamond.setFill(javafx.scene.paint.Color.web("#A6A6A6"));
         mostRecentSelection = SelectedOption.QUIZ_SEARCH;
     }
 
     public void onContinueGlossaryButtonClick(ActionEvent actionEvent) {
-        continueGlossaryDiamond.setFill(javafx.scene.paint.Color.WHITE);
-        searchGlossaryDiamond.setFill(javafx.scene.paint.Color.GRAY);
+        continueGlossaryDiamond.setFill(javafx.scene.paint.Color.web("#E6E6E6"));
+        searchGlossaryDiamond.setFill(javafx.scene.paint.Color.web("#A6A6A6"));
         mostRecentSelection = SelectedOption.GLOSSARY_CONTINUE;
     }
 
     public void onSearchGlossaryButtonClick(ActionEvent actionEvent) {
-        searchGlossaryDiamond.setFill(javafx.scene.paint.Color.WHITE);
-        continueGlossaryDiamond.setFill(javafx.scene.paint.Color.GRAY);
+        searchGlossaryDiamond.setFill(javafx.scene.paint.Color.web("#E6E6E6"));
+        continueGlossaryDiamond.setFill(javafx.scene.paint.Color.web("#A6A6A6"));
         mostRecentSelection = SelectedOption.GLOSSARY_SEARCH;
     }
 

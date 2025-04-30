@@ -30,8 +30,14 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
-        loadAccountView();
+        loadLoginView();
         primaryStage.show();
+    }
+
+    private void loadLoginView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/aiconceptsexplorer/hello-view.fxml"));
+        Parent root = loader.load();
+        primaryStage.setScene(new Scene(root, 1200, 700));
     }
 
     private void loadAccountView() throws IOException {

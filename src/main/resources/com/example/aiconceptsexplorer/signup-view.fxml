@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.controllers.signupController">
+   <children>
+      <Label alignment="CENTER" text="Sign Up">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <TextField promptText="Name" fx:id="name"/>
+      <TextField promptText="Email" fx:id="email"/>
+      <PasswordField promptText="Password" fx:id="password"/>
+      <Button mnemonicParsing="false" text="Sign Up" onAction="#onSignUp"/>
+      <Label fx:id="errorLabel" textFill="RED" />
+      <Label text="Already have an account?" />
+      <Button fx:id="loginButton" mnemonicParsing="false" text="Log In" onAction="#onLoginRedirect" />
+   </children>
+</VBox>

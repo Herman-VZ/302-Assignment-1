@@ -17,6 +17,8 @@ public class loginController {
 
     private SqliteUserDAO newUserDAO;
 
+    private Runnable navigateToLearn;
+
     @FXML
     private TextField email;
 
@@ -33,15 +35,25 @@ public class loginController {
         newUserDAO = new SqliteUserDAO();
     }
 
+    public void setNavigation(Runnable toLearn) {
+        this.navigateToLearn = toLearn;
+    }
+
+
     @FXML
-    private void onLogin(){
+    private void onLogin() {
         String userEmail = email.getText();
         String userPassword = password.getText();
         boolean loginCheck = newUserDAO.loginUser(userEmail, userPassword);
-        if (!loginCheck){
+        if (!loginCheck) {
             errorLabel.setText("Incorrect email or password, please try again");
+        } else {
+            if (navigateToLearn != null) {
+                navigateToLearn.run();  // This will trigger the navigation to the learn view
+            }
         }
     }
+
 
     @FXML
     private void onSignupRedirect() throws IOException {

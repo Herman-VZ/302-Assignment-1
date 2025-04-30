@@ -12,6 +12,7 @@ import com.example.account.AccountController;
 import com.example.learnscreen.LessonController;
 import com.example.leaderboardscreen.LeaderController;
 import com.example.learnscreen.GlossaryController;
+import com.example.aiconceptsexplorer.controllers.loginController;
 
 public class MainApplication extends Application {
 
@@ -35,10 +36,22 @@ public class MainApplication extends Application {
     }
 
     private void loadLoginView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/aiconceptsexplorer/hello-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/aiconceptsexplorer/login-view.fxml"));
         Parent root = loader.load();
+
+        // Get the controller and set navigation logic
+        loginController controller = loader.getController();
+        controller.setNavigation(() -> {
+            try {
+                loadLearnView(); // Navigate to the Learn View after successful login
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
         primaryStage.setScene(new Scene(root, 1200, 700));
     }
+
 
     private void loadAccountView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/account/account-view.fxml"));

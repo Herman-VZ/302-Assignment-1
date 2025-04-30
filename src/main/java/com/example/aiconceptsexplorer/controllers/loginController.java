@@ -20,16 +20,16 @@ public class loginController {
     private Runnable navigateToLearn;
 
     @FXML
-    private TextField email;
+    public TextField email;
 
     @FXML
-    private PasswordField password;
+    public PasswordField password;
 
     @FXML
     private Button signupButton;
 
     @FXML
-    private Label errorLabel;
+    public Label errorLabel;
 
     public loginController() {
         newUserDAO = new SqliteUserDAO();
@@ -41,7 +41,7 @@ public class loginController {
 
 
     @FXML
-    private void onLogin() {
+    public void onLogin() {
         String userEmail = email.getText();
         String userPassword = password.getText();
         boolean loginCheck = newUserDAO.loginUser(userEmail, userPassword);

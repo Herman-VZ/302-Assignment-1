@@ -19,26 +19,26 @@ public class signupController {
     private SqliteUserDAO newUserDAO;
 
     @FXML
-    private TextField name;
+    public TextField name;
 
     @FXML
-    private TextField email;
+    public TextField email;
 
     @FXML
-    private PasswordField password;
+    public PasswordField password;
 
     @FXML
     private Button loginButton;
 
     @FXML
-    private Label errorLabel;
+    public Label errorLabel;
 
     public signupController() {
         newUserDAO = new SqliteUserDAO();
     }
 
     @FXML
-    private void onSignUp(){
+    public void onSignUp(){
         // Resets error text
         errorLabel.setText("");
         String userName = name.getText();

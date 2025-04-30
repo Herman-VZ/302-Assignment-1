@@ -26,15 +26,28 @@ public class SqliteUserDAO implements IUserDAO {
         }
     }
 
+    public void deleteUserByEmail(String email) {
+        String sql = "DELETE FROM users WHERE email = ?";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, email);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace(); // Or log
+        }
+    }
+
     @Override
     public void addUser(User user) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+                    Statement.RETURN_GENERATED_KEYS
+            );
             statement.setString(1, user.getName());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getPassword());
             statement.executeUpdate();
-            // Set the id of the new contact
+
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
                 user.setId(generatedKeys.getInt(1));
@@ -58,14 +71,16 @@ public class SqliteUserDAO implements IUserDAO {
     @Override
     public boolean loginUser(String email, String password) {
         try {
-        PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM users WHERE email = ? AND password = ?");
-        statement.setString(1,email);
-        statement.setString(2,password);
-        ResultSet resultSet = statement.executeQuery();
-        if (resultSet.next()){
-            int check = resultSet.getInt("count");
-            return check == 1;
-        }
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT COUNT(*) AS count FROM users WHERE email = ? AND password = ?"
+            );
+            statement.setString(1, email);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int check = resultSet.getInt("count");
+                return check == 1;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -76,19 +91,18 @@ public class SqliteUserDAO implements IUserDAO {
     public boolean validateEmail(User user) {
         String userEmail = user.getEmail();
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM users WHERE email = ?");
-            statement.setString(1,userEmail);
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT COUNT(*) AS count FROM users WHERE email = ?"
+            );
+            statement.setString(1, userEmail);
             ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 int check = resultSet.getInt("count");
                 return check != 1;
             }
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
-
-
 }

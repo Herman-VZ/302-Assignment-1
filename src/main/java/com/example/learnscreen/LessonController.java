@@ -136,7 +136,9 @@ public class LessonController {
                 loadPage("SearchQuiz.fxml");
                 break;
             case GLOSSARY_CONTINUE:
-                loadPage("ContinueGlossary.fxml");
+                if (navigateToGlossary != null) {
+                    navigateToGlossary.run();
+                }
                 break;
             case NONE:
                 showError("Please select an option first!");
@@ -186,38 +188,6 @@ public class LessonController {
     public void onAccountTabClick(ActionEvent actionEvent) {
         if (navigateToAccount != null) {
             navigateToAccount.run();
-        }
-    }
-
-    @FXML
-    public void onGlossaryTabClick(ActionEvent actionEvent) {
-        if (navigateToGlossary != null) {
-            navigateToGlossary.run();
-        }
-    }
-
-    // Methods for navigating to Leaderboard and Account screens
-    public void navigateToLeaderboard() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/path/to/Leaderboard.fxml"));
-            Stage stage = (Stage) confirmButton.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            showError("Failed to load Leaderboard page.");
-        }
-    }
-
-    public void navigateToAccount() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/path/to/Account.fxml"));
-            Stage stage = (Stage) confirmButton.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            showError("Failed to load Account page.");
         }
     }
 }

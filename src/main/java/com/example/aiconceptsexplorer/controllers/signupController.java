@@ -3,6 +3,7 @@ package com.example.aiconceptsexplorer.controllers;
 import com.example.aiconceptsexplorer.HelloApplication;
 import com.example.aiconceptsexplorer.models.SqliteUserDAO;
 import com.example.aiconceptsexplorer.models.User;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,13 +11,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class signupController {
 
+    public Label goodLabel;
+
     private SqliteUserDAO newUserDAO;
+
+    private Runnable navigateToLogIn;
+
+    public void setNavigation(Runnable toLogIn) {
+        this.navigateToLogIn = toLogIn;
+    }
 
     @FXML
     public TextField name;
@@ -60,17 +70,17 @@ public class signupController {
 
         if (valid) {
             newUserDAO.addUser(newUser);
+            goodLabel.setText("Signup successful.");
         } else {
             errorLabel.setText("This email is already in use, please try another.");
         }
     }
 
     @FXML
-    private void onLoginRedirect() throws IOException {
-        Stage stage = (Stage) loginButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
+    private void onLoginRedirect(ActionEvent actionEvent) {
+        if (navigateToLogIn != null) {
+            navigateToLogIn.run();  // Navigate back to Login view
+        }
     }
 
     private boolean isValidEmail(String email) {

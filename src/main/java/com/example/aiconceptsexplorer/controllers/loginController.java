@@ -20,6 +20,8 @@ public class loginController {
 
     private Consumer<String> navigateToLearn;
 
+    private Runnable navigateToSignup;
+
     @FXML
     public TextField email;
 
@@ -36,8 +38,9 @@ public class loginController {
         newUserDAO = new SqliteUserDAO();
     }
 
-    public void setNavigation(Consumer<String> toLearn) {
+    public void setNavigation(Consumer<String> toLearn, Runnable toSignup) {
         this.navigateToLearn = toLearn;
+        this.navigateToSignup = toSignup;
     }
 
     @FXML
@@ -56,9 +59,8 @@ public class loginController {
 
     @FXML
     private void onSignupRedirect() throws IOException {
-        Stage stage = (Stage) signupButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("signup-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
+        if (navigateToSignup != null) {
+            navigateToSignup.run();  // Navigate to Signup view
+        }
     }
 }

@@ -13,6 +13,7 @@ import com.example.aiconceptsexplorer.learnscreen.LessonController;
 import com.example.aiconceptsexplorer.leaderboardscreen.LeaderController;
 import com.example.aiconceptsexplorer.learnscreen.GlossaryController;
 import com.example.aiconceptsexplorer.controllers.loginController;
+import com.example.aiconceptsexplorer.controllers.signupController;
 
 public class MainApplication extends Application {
 
@@ -36,15 +37,37 @@ public class MainApplication extends Application {
         primaryStage.show();
     }
 
+    private void loadSignupView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/aiconceptsexplorer/signup-view.fxml"));
+        Parent root = loader.load();
+
+        signupController controller = loader.getController();
+        controller.setNavigation(() -> {
+            try {
+                loadLoginView();  // Navigate to Login view after signup
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        primaryStage.setScene(new Scene(root, 1200, 700));
+    }
+
     private void loadLoginView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/aiconceptsexplorer/login-view.fxml"));
         Parent root = loader.load();
 
         loginController controller = loader.getController();
         controller.setNavigation((String userEmail) -> {
-            currentUserEmail = userEmail;  //  Capture email after login
+            currentUserEmail = userEmail;  // Capture email after login
             try {
-                loadLearnView(); // Navigate to Learn view after login
+                loadLearnView();  // Navigate to Learn view after login
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }, () -> {
+            try {
+                loadSignupView(); // Navigate to Signup view
             } catch (IOException e) {
                 e.printStackTrace();
             }

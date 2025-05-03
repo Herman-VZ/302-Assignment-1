@@ -1,4 +1,4 @@
-package com.example.leaderboardscreen;
+package com.example.aiconceptsexplorer.leaderboardscreen;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

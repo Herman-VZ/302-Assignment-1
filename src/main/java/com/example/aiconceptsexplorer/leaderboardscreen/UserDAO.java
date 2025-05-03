@@ -1,4 +1,4 @@
-package com.example.leaderboardscreen;
+package com.example.aiconceptsexplorer.leaderboardscreen;
 
 import java.sql.*;
 import java.util.ArrayList;

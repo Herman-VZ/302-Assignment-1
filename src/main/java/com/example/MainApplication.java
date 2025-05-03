@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import com.example.aiconceptsexplorer.account.AccountController;
 import com.example.learnscreen.LessonController;
-import com.example.leaderboardscreen.LeaderController;
+import com.example.aiconceptsexplorer.leaderboardscreen.LeaderController;
 import com.example.learnscreen.GlossaryController;
 import com.example.aiconceptsexplorer.controllers.loginController;
 

@@ -25,6 +25,7 @@ public class AccountDatabaseManager {
                     "latest_achievement TEXT, " +        // New column for latest achievement
                     "lesson_streak INTEGER, " +          // New column for lesson streak
                     "achievement TEXT, " +               // Existing column for achievement
+                    "score INT, " +
                     "medal TEXT)";                       // Existing column for medal
             statement.execute(createTableSQL);
 

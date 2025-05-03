@@ -10,6 +10,7 @@ public class User {
     private int lessonStreak;
     private String achievement;
     private String medal;
+    private int score;
 
     public User(String name, String email, String password) {
         this.name = name;
@@ -19,7 +20,7 @@ public class User {
 
     // Full constructor (optional if needed)
     public User(int id, String name, String email, String password, String latestAchievement,
-                String latestLesson, int lessonStreak, String achievement, String medal) {
+                String latestLesson, int lessonStreak, String achievement, String medal, int score) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -29,6 +30,7 @@ public class User {
         this.lessonStreak = lessonStreak;
         this.achievement = achievement;
         this.medal = medal;
+        this.score = score;
     }
 
     // Getters and Setters
@@ -67,4 +69,8 @@ public class User {
     public String getMedal() { return medal; }
 
     public void setMedal(String medal) { this.medal = medal; }
+
+    public int getscore() { return score; }
+
+    public void setscore(int score) { this.score = score; }
 }

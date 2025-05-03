@@ -25,6 +25,7 @@ public class SqliteUserDAO implements IUserDAO {
                     + "lesson_streak INTEGER, "
                     + "achievement TEXT, "
                     + "medal TEXT "
+                    + "score INTEGER "
                     + ")";
             statement.execute(query);
         } catch (Exception e) {

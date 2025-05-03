@@ -1,4 +1,4 @@
-package com.example.learnscreen;
+package com.example.aiconceptsexplorer.learnscreen;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package com.example.learnscreen;
+package com.example.aiconceptsexplorer.learnscreen;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -10,8 +10,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.*;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class AccountController {
     @FXML private Text profileNameText;
@@ -23,61 +25,47 @@ public class AccountController {
     private Runnable navigateToLearn;
     private Runnable navigateToLogOut;
 
-    private List<String> userNames;
-    private int currentUserIndex = 0;
+    private String currentUserEmail;
+
+    // Method to set the email of the signed-in user
+    public void setCurrentUserEmail(String email) {
+        this.currentUserEmail = email;
+        loadUserDataForEmail(currentUserEmail);  // Load data when email is set
+    }
 
     @FXML
     public void initialize() {
-        loadAllUserNames();
-    }
-
-    public void setNavigation(Runnable toLeaderboard, Runnable toLearn, Runnable toLogout) {
-        this.navigateToLeaderboard = toLeaderboard;
-        this.navigateToLearn = toLearn;
-        this.navigateToLogOut = toLogout;
-    }
-
-    private void loadAllUserNames() {
-        userNames = AccountDatabaseManager.getAllUserNames();
-        if (!userNames.isEmpty()) {
-            profileNameText.setText(userNames.get(0));
-            loadUserData();
+        if (currentUserEmail != null) {
+            loadUserDataForEmail(currentUserEmail);  // Ensure data is loaded on initialization
         } else {
-            profileNameText.setText("No users available");
+            profileNameText.setText("No user signed in");
         }
     }
 
-    public void OnUserInfoClick(ActionEvent actionEvent) {
-        if (userNames.isEmpty()) {
-            profileNameText.setText("No users available");
+    private void loadUserDataForEmail(String email) {
+        if (email == null) {
+            profileNameText.setText("No user signed in");
             return;
         }
 
-        currentUserIndex = (currentUserIndex + 1) % userNames.size();
-        String currentUserName = userNames.get(currentUserIndex);
-        profileNameText.setText(currentUserName);
-        loadUserData();
-    }
-
-    private void loadUserData() {
         try (Connection conn = AccountDatabaseManager.getConnection()) {
-            String query = "SELECT name, latest_lesson, lesson_streak, latest_achievement " +
-                    "FROM users LIMIT ?, 1";
+            String query = "SELECT name, latest_lesson, lesson_streak, latest_achievement FROM users WHERE email = ?";
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setInt(1, currentUserIndex);
+            stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                String firstName = rs.getString("name");
-                profileNameText.setText(firstName);
-
+                String name = rs.getString("name");
                 String latestLesson = rs.getString("latest_lesson");
-                int currentStreak = rs.getInt("lesson_streak");
-                String latestAchievement = rs.getString("latest_achievement");
+                int streak = rs.getInt("lesson_streak");
+                String achievement = rs.getString("latest_achievement");
 
+                profileNameText.setText(name);
                 latestLessonText.setText("Latest Lesson: " + latestLesson);
-                currentStreakText.setText("Lesson Streak: " + currentStreak);
-                latestAchievementText.setText("Latest Achievement: " + latestAchievement);
+                currentStreakText.setText("Lesson Streak: " + streak);
+                latestAchievementText.setText("Latest Achievement: " + achievement);
+            } else {
+                profileNameText.setText("User not found.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,7 +88,7 @@ public class AccountController {
     private void handleTrophyPopup(ActionEvent actionEvent) {
         Button clickedButton = (Button) actionEvent.getSource();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("trophy-popup.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/account/trophy-popup.fxml"));
             Scene popupScene = new Scene(loader.load());
             Stage popupStage = new Stage();
             popupStage.setTitle("Trophies");
@@ -114,6 +102,12 @@ public class AccountController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setNavigation(Runnable toLeaderboard, Runnable toLearn, Runnable toLogout) {
+        this.navigateToLeaderboard = toLeaderboard;
+        this.navigateToLearn = toLearn;
+        this.navigateToLogOut = toLogout;
     }
 
     @FXML

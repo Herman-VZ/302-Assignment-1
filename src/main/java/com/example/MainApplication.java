@@ -9,14 +9,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.example.aiconceptsexplorer.account.AccountController;
-import com.example.learnscreen.LessonController;
+import com.example.aiconceptsexplorer.learnscreen.LessonController;
 import com.example.aiconceptsexplorer.leaderboardscreen.LeaderController;
-import com.example.learnscreen.GlossaryController;
+import com.example.aiconceptsexplorer.learnscreen.GlossaryController;
 import com.example.aiconceptsexplorer.controllers.loginController;
 
 public class MainApplication extends Application {
 
     private static Stage primaryStage;
+    private static String currentUserEmail; // ✅ Store the logged-in user's email
 
     static {
         try {
@@ -39,11 +40,11 @@ public class MainApplication extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/aiconceptsexplorer/login-view.fxml"));
         Parent root = loader.load();
 
-        // Get the controller and set navigation logic
         loginController controller = loader.getController();
-        controller.setNavigation(() -> {
+        controller.setNavigation((String userEmail) -> {
+            currentUserEmail = userEmail;  //  Capture email after login
             try {
-                loadLearnView(); // Navigate to the Learn View after successful login
+                loadLearnView(); // Navigate to Learn view after login
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -52,12 +53,13 @@ public class MainApplication extends Application {
         primaryStage.setScene(new Scene(root, 1200, 700));
     }
 
-
     private void loadAccountView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/account/account-view.fxml"));
         Parent root = loader.load();
 
         AccountController controller = loader.getController();
+        controller.setCurrentUserEmail(currentUserEmail); // ✅ Pass email to AccountController
+
         controller.setNavigation(
                 () -> {
                     try {
@@ -75,7 +77,7 @@ public class MainApplication extends Application {
                 },
                 () -> {
                     try {
-                        loadLoginView();  // Assuming this method exists for loading the glossary view
+                        loadLoginView();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -107,7 +109,7 @@ public class MainApplication extends Application {
                 },
                 () -> {
                     try {
-                        loadLoginView();  // Assuming this method exists for loading the glossary view
+                        loadLoginView();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -118,7 +120,6 @@ public class MainApplication extends Application {
     }
 
     private void loadLearnView() throws IOException {
-        System.out.println("Navigating to Learn View...");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/learnscreen/learn.fxml"));
         Parent root = loader.load();
 
@@ -140,7 +141,7 @@ public class MainApplication extends Application {
                 },
                 () -> {
                     try {
-                        loadGlossaryView();  // Assuming this method exists for loading the glossary view
+                        loadGlossaryView();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -156,8 +157,6 @@ public class MainApplication extends Application {
 
         primaryStage.setScene(new Scene(root, 1200, 700));
     }
-
-
 
     private void loadGlossaryView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/learnscreen/ContinueGlossary.fxml"));
@@ -190,7 +189,6 @@ public class MainApplication extends Application {
 
         primaryStage.setScene(new Scene(root, 1200, 700));
     }
-
 
     public static void main(String[] args) {
         launch(args);

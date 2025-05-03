@@ -6,12 +6,12 @@ module com.example {
     opens com.example to javafx.graphics;
     opens com.example.aiconceptsexplorer.account to javafx.fxml;
     opens com.example.aiconceptsexplorer.leaderboardscreen to javafx.fxml;
-    opens com.example.learnscreen to javafx.fxml;
+    opens com.example.aiconceptsexplorer.learnscreen to javafx.fxml;
     opens com.example.aiconceptsexplorer.controllers to javafx.fxml; // ✅ added this
 
     exports com.example;
     exports com.example.aiconceptsexplorer.account;
     exports com.example.aiconceptsexplorer.leaderboardscreen;
-    exports com.example.learnscreen;
+    exports com.example.aiconceptsexplorer.learnscreen;
     exports com.example.aiconceptsexplorer.controllers; // ✅ added this
 }

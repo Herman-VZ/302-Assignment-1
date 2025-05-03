@@ -38,19 +38,30 @@ public class signupController {
     }
 
     @FXML
-    public void onSignUp(){
-        // Resets error text
-        errorLabel.setText("");
+    public void onSignUp() {
+        errorLabel.setText(""); // Clear previous errors
+
         String userName = name.getText();
         String userEmail = email.getText();
         String userPassword = password.getText();
+
+        if (!isValidEmail(userEmail)) {
+            errorLabel.setText("Invalid email. Must contain '@' and end with '.com'.");
+            return;
+        }
+
+        if (!isValidPassword(userPassword)) {
+            errorLabel.setText("Password must be 6+ chars, include a number & special character.");
+            return;
+        }
+
         User newUser = new User(userName, userEmail, userPassword);
         boolean valid = newUserDAO.validateEmail(newUser);
-        if (valid){
+
+        if (valid) {
             newUserDAO.addUser(newUser);
-        }
-        else{
-            errorLabel.setText("This email is already in use, please try again with another email.");
+        } else {
+            errorLabel.setText("This email is already in use, please try another.");
         }
     }
 
@@ -62,4 +73,14 @@ public class signupController {
         stage.setScene(scene);
     }
 
+    private boolean isValidEmail(String email) {
+        return email.contains("@") && email.toLowerCase().endsWith(".com");
+    }
+
+    private boolean isValidPassword(String password) {
+        if (password.length() < 6) return false;
+        boolean hasNumber = password.matches(".*\\d.*");
+        boolean hasSpecial = password.matches(".*[!@#$%^&*(),.?\":{}|<>].*");
+        return hasNumber && hasSpecial;
+    }
 }

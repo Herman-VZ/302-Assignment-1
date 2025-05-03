@@ -12,12 +12,13 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.function.Consumer;
 
 public class loginController {
 
     private SqliteUserDAO newUserDAO;
 
-    private Runnable navigateToLearn;
+    private Consumer<String> navigateToLearn;
 
     @FXML
     public TextField email;
@@ -35,10 +36,9 @@ public class loginController {
         newUserDAO = new SqliteUserDAO();
     }
 
-    public void setNavigation(Runnable toLearn) {
+    public void setNavigation(Consumer<String> toLearn) {
         this.navigateToLearn = toLearn;
     }
-
 
     @FXML
     public void onLogin() {
@@ -49,11 +49,10 @@ public class loginController {
             errorLabel.setText("Incorrect email or password, please try again");
         } else {
             if (navigateToLearn != null) {
-                navigateToLearn.run();  // This will trigger the navigation to the learn view
+                navigateToLearn.accept(userEmail);  // Pass email to the next screen
             }
         }
     }
-
 
     @FXML
     private void onSignupRedirect() throws IOException {
@@ -62,6 +61,4 @@ public class loginController {
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
     }
-
-
 }

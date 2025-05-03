@@ -38,6 +38,7 @@ public class LessonController {
     private Runnable navigateToLeaderboard;
     private Runnable navigateToAccount;
     private Runnable navigateToGlossary;
+    private Runnable navigateToLogin;
 
     public enum SelectedOption {
         NONE, // Default state
@@ -52,10 +53,11 @@ public class LessonController {
     private SelectedOption mostRecentSelection = SelectedOption.NONE;
 
     // This method allows setting the navigation actions for the controller
-    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toGlossary) {
+    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toGlossary, Runnable toLogin) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToAccount = toAccount;
         this.navigateToGlossary = toGlossary;
+        this.navigateToLogin = toLogin;
     }
 
     public void onFirstButtonClick(ActionEvent actionEvent) {
@@ -183,6 +185,14 @@ public class LessonController {
             navigateToLeaderboard.run();
         }
     }
+
+    @FXML
+    public void onlogoutButtonClick (ActionEvent actionevent) {
+        if (navigateToLogin != null) {
+            navigateToLogin.run();
+        }
+    }
+
 
     @FXML
     public void onAccountTabClick(ActionEvent actionEvent) {

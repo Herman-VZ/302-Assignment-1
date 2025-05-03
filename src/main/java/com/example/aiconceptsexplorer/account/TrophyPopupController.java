@@ -1,4 +1,4 @@
-package com.example.account;
+package com.example.aiconceptsexplorer.account;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;

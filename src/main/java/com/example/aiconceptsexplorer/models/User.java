@@ -2,46 +2,69 @@ package com.example.aiconceptsexplorer.models;
 
 public class User {
     private int id;
-    private String Name;
+    private String name;
     private String email;
     private String password;
+    private String latestAchievement;
+    private String latestLesson;
+    private int lessonStreak;
+    private String achievement;
+    private String medal;
 
-    public User(String Name, String email, String password) {
-        this.Name = Name;
+    public User(String name, String email, String password) {
+        this.name = name;
         this.email = email;
         this.password = password;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    // Full constructor (optional if needed)
+    public User(int id, String name, String email, String password, String latestAchievement,
+                String latestLesson, int lessonStreak, String achievement, String medal) {
         this.id = id;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
+        this.name = name;
         this.email = email;
-    }
-
-    public String getPassword(){
-        return password;
-    }
-
-    public void setPassword(String password){
         this.password = password;
+        this.latestAchievement = latestAchievement;
+        this.latestLesson = latestLesson;
+        this.lessonStreak = lessonStreak;
+        this.achievement = achievement;
+        this.medal = medal;
     }
 
+    // Getters and Setters
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
+
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
+
+    public String getPassword() { return password; }
+
+    public void setPassword(String password) { this.password = password; }
+
+    public String getLatestAchievement() { return latestAchievement; }
+
+    public void setLatestAchievement(String latestAchievement) { this.latestAchievement = latestAchievement; }
+
+    public String getLatestLesson() { return latestLesson; }
+
+    public void setLatestLesson(String latestLesson) { this.latestLesson = latestLesson; }
+
+    public int getLessonStreak() { return lessonStreak; }
+
+    public void setLessonStreak(int lessonStreak) { this.lessonStreak = lessonStreak; }
+
+    public String getAchievement() { return achievement; }
+
+    public void setAchievement(String achievement) { this.achievement = achievement; }
+
+    public String getMedal() { return medal; }
+
+    public void setMedal(String medal) { this.medal = medal; }
 }

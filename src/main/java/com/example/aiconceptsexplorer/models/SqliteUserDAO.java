@@ -10,15 +10,21 @@ public class SqliteUserDAO implements IUserDAO {
         createTable();
     }
 
+
     private void createTable() {
         // Create table if not exists
         try {
             Statement statement = connection.createStatement();
             String query = "CREATE TABLE IF NOT EXISTS users ("
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "name VARCHAR NOT NULL,"
-                    + "email VARCHAR NOT NULL,"
-                    + "password VARCHAR NOT NULL"
+                    + "name VARCHAR NOT NULL, "
+                    + "email VARCHAR NOT NULL, "
+                    + "password VARCHAR NOT NULL, "
+                    + "latest_achievement TEXT, "
+                    + "latest_lesson Text, "
+                    + "lesson_streak INTEGER, "
+                    + "achievement TEXT, "
+                    + "medal TEXT "
                     + ")";
             statement.execute(query);
         } catch (Exception e) {

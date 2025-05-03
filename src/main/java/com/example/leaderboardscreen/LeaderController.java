@@ -17,15 +17,17 @@ public class LeaderController {
 
     private Runnable navigateToAccount;
     private Runnable navigateToLearn;
+    private Runnable navigateToLogin;
 
     @FXML
     public void initialize() {
         refreshLeaderboard();
     }
 
-    public void setNavigation(Runnable toAccount, Runnable toLearn) {
+    public void setNavigation(Runnable toAccount, Runnable toLearn, Runnable toLogin) {
         this.navigateToAccount = toAccount;
         this.navigateToLearn = toLearn;
+        this.navigateToLogin = toLogin;
     }
 
     private void refreshLeaderboard() {
@@ -37,6 +39,13 @@ public class LeaderController {
     public void onFirstButtonClick(ActionEvent actionEvent) throws IOException {
         if (navigateToAccount != null) {
             navigateToAccount.run();
+        }
+    }
+
+    @FXML
+    public void onLogOutClick(ActionEvent actionEvent) throws IOException {
+        if (navigateToLogin!= null) {
+            navigateToLogin.run();
         }
     }
 

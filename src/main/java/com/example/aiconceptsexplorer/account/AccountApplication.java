@@ -1,4 +1,4 @@
-package com.example.account;
+package com.example.aiconceptsexplorer.account;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

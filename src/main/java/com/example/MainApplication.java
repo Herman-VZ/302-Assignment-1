@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import com.example.account.AccountController;
+import com.example.aiconceptsexplorer.account.AccountController;
 import com.example.learnscreen.LessonController;
 import com.example.leaderboardscreen.LeaderController;
 import com.example.learnscreen.GlossaryController;
@@ -72,6 +72,13 @@ public class MainApplication extends Application {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                },
+                () -> {
+                    try {
+                        loadLoginView();  // Assuming this method exists for loading the glossary view
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
         );
 
@@ -97,6 +104,13 @@ public class MainApplication extends Application {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                },
+                () -> {
+                    try {
+                        loadLoginView();  // Assuming this method exists for loading the glossary view
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
         );
 
@@ -104,6 +118,7 @@ public class MainApplication extends Application {
     }
 
     private void loadLearnView() throws IOException {
+        System.out.println("Navigating to Learn View...");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/learnscreen/learn.fxml"));
         Parent root = loader.load();
 
@@ -111,14 +126,14 @@ public class MainApplication extends Application {
         controller.setNavigation(
                 () -> {
                     try {
-                        loadAccountView();
+                        loadLeaderboardView();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 },
                 () -> {
                     try {
-                        loadLeaderboardView();
+                        loadAccountView();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -129,11 +144,20 @@ public class MainApplication extends Application {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                },
+                () -> {
+                    try {
+                        loadLoginView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
         );
 
         primaryStage.setScene(new Scene(root, 1200, 700));
     }
+
+
 
     private void loadGlossaryView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/learnscreen/ContinueGlossary.fxml"));

@@ -1,4 +1,4 @@
-package com.example.account;
+package com.example.aiconceptsexplorer.account;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +21,7 @@ public class AccountController {
 
     private Runnable navigateToLeaderboard;
     private Runnable navigateToLearn;
+    private Runnable navigateToLogOut;
 
     private List<String> userNames;
     private int currentUserIndex = 0;
@@ -30,9 +31,10 @@ public class AccountController {
         loadAllUserNames();
     }
 
-    public void setNavigation(Runnable toLeaderboard, Runnable toLearn) {
+    public void setNavigation(Runnable toLeaderboard, Runnable toLearn, Runnable toLogout) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToLearn = toLearn;
+        this.navigateToLogOut = toLogout;
     }
 
     private void loadAllUserNames() {
@@ -59,16 +61,15 @@ public class AccountController {
 
     private void loadUserData() {
         try (Connection conn = AccountDatabaseManager.getConnection()) {
-            String query = "SELECT first_name, last_name, latest_lesson, lesson_streak, latest_achievement " +
+            String query = "SELECT name, latest_lesson, lesson_streak, latest_achievement " +
                     "FROM users LIMIT ?, 1";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setInt(1, currentUserIndex);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                String firstName = rs.getString("first_name");
-                String lastName = rs.getString("last_name");
-                profileNameText.setText(firstName + " " + lastName);
+                String firstName = rs.getString("name");
+                profileNameText.setText(firstName);
 
                 String latestLesson = rs.getString("latest_lesson");
                 int currentStreak = rs.getInt("lesson_streak");
@@ -119,6 +120,13 @@ public class AccountController {
     public void onLeaderboardTabClick(ActionEvent actionEvent) {
         if (navigateToLeaderboard != null) {
             navigateToLeaderboard.run();
+        }
+    }
+
+    @FXML
+    public void onLogoutClick(ActionEvent actionEvent) {
+        if (navigateToLogOut != null) {
+            navigateToLogOut.run();
         }
     }
 

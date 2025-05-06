@@ -39,6 +39,7 @@ public class LessonController {
     private Runnable navigateToAccount;
     private Runnable navigateToGlossary;
     private Runnable navigateToLogin;
+    private Runnable navigateToSearchQuiz;
 
     public enum SelectedOption {
         NONE, // Default state
@@ -47,17 +48,17 @@ public class LessonController {
         QUIZ_CONTINUE,
         QUIZ_SEARCH,
         GLOSSARY_CONTINUE,
-        GLOSSARY_SEARCH
     }
 
     private SelectedOption mostRecentSelection = SelectedOption.NONE;
 
     // This method allows setting the navigation actions for the controller
-    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toGlossary, Runnable toLogin) {
+    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toGlossary, Runnable toLogin, Runnable toSearchQuiz) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToAccount = toAccount;
         this.navigateToGlossary = toGlossary;
         this.navigateToLogin = toLogin;
+        this.navigateToSearchQuiz = toSearchQuiz;
     }
 
     public void onFirstButtonClick(ActionEvent actionEvent) {
@@ -112,16 +113,9 @@ public class LessonController {
     }
 
     public void onContinueGlossaryButtonClick(ActionEvent actionEvent) {
-        continueGlossaryDiamond.setFill(javafx.scene.paint.Color.web("#E6E6E6"));
-        searchGlossaryDiamond.setFill(javafx.scene.paint.Color.web("#A6A6A6"));
         mostRecentSelection = SelectedOption.GLOSSARY_CONTINUE;
     }
 
-    public void onSearchGlossaryButtonClick(ActionEvent actionEvent) {
-        searchGlossaryDiamond.setFill(javafx.scene.paint.Color.web("#E6E6E6"));
-        continueGlossaryDiamond.setFill(javafx.scene.paint.Color.web("#A6A6A6"));
-        mostRecentSelection = SelectedOption.GLOSSARY_SEARCH;
-    }
 
     public void onConfirmButtonClick(ActionEvent actionEvent) {
         switch (mostRecentSelection) {
@@ -135,7 +129,9 @@ public class LessonController {
                 loadPage("ContinueQuiz.fxml");
                 break;
             case QUIZ_SEARCH:
-                loadPage("SearchQuiz.fxml");
+                if (navigateToSearchQuiz != null) {
+                    navigateToSearchQuiz.run();
+                }
                 break;
             case GLOSSARY_CONTINUE:
                 if (navigateToGlossary != null) {

@@ -39,6 +39,7 @@ public class LessonController {
     private Runnable navigateToAccount;
     private Runnable navigateToGlossary;
     private Runnable navigateToLogin;
+    private Runnable navigateToSearchLesson;
     private Runnable navigateToSearchQuiz;
 
     public enum SelectedOption {
@@ -53,12 +54,13 @@ public class LessonController {
     private SelectedOption mostRecentSelection = SelectedOption.NONE;
 
     // This method allows setting the navigation actions for the controller
-    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toGlossary, Runnable toLogin, Runnable toSearchQuiz) {
+    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toGlossary, Runnable toLogin, Runnable toSearchQuiz, Runnable toSearchLesson) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToAccount = toAccount;
         this.navigateToGlossary = toGlossary;
         this.navigateToLogin = toLogin;
         this.navigateToSearchQuiz = toSearchQuiz;
+        this.navigateToSearchLesson = toSearchLesson;
     }
 
     public void onFirstButtonClick(ActionEvent actionEvent) {
@@ -123,7 +125,9 @@ public class LessonController {
                 loadPage("ContinueLessons.fxml");
                 break;
             case LESSONS_SEARCH:
-                loadPage("SearchLessons.fxml");
+                if (navigateToSearchLesson != null) {
+                    navigateToSearchLesson.run();
+                }
                 break;
             case QUIZ_CONTINUE:
                 loadPage("ContinueQuiz.fxml");

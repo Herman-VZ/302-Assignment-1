@@ -21,7 +21,7 @@ public class SearchLessonController {
     private TextField searchField;
 
     @FXML
-    private ListView<String> lessonList;
+    private ListView<String> LessonList;
 
     private ObservableList<String> lessons;
 
@@ -36,19 +36,19 @@ public class SearchLessonController {
                 "Search Algorithms",
                 "Natural Language Processing"
         );
-        lessonList.setItems(lessons);
+        LessonList.setItems(lessons);
 
         searchField.textProperty().addListener((observable, oldText, newText) -> filterLessonList(newText));
     }
 
     private void filterLessonList(String query) {
         if (query == null || query.isEmpty()) {
-            lessonList.setItems(lessons);
+            LessonList.setItems(lessons);
         } else {
             List<String> filtered = lessons.stream()
                     .filter(q -> q.toLowerCase().contains(query.toLowerCase()))
                     .collect(Collectors.toList());
-            lessonList.setItems(FXCollections.observableArrayList(filtered));
+            LessonList.setItems(FXCollections.observableArrayList(filtered));
         }
     }
 
@@ -60,7 +60,7 @@ public class SearchLessonController {
 
     @FXML
     private void onStartLessonClick(ActionEvent event) {
-
+        System.out.println("Start Lesson clicked");
     }
 
     @FXML

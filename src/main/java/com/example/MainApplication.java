@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.aiconceptsexplorer.learnscreen.SearchLessonController;
 import com.example.aiconceptsexplorer.learnscreen.SearchQuizController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -179,14 +180,14 @@ public class MainApplication extends Application {
                 },
                 () -> {
                     try {
-                        loadSearchLessonView();
+                        loadSearchQuizView();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 },
                 () -> {
                     try {
-                        loadSearchQuizView();
+                        loadSearchLessonView();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -261,10 +262,10 @@ public class MainApplication extends Application {
     }
 
     private void loadSearchLessonView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/learnscreen/SearchLesson.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/learnscreen/SearchLessons.fxml"));
         Parent root = loader.load();
 
-        SearchQuizController controller = loader.getController();
+        SearchLessonController controller = loader.getController();
         controller.setNavigation(
                 () -> {
                     try {

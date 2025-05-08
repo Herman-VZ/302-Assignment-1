@@ -60,7 +60,7 @@ public class SearchQuizController {
 
     @FXML
     private void onStartQuizClick(ActionEvent event) {
-
+        System.out.println("Start Quiz clicked");
     }
 
     @FXML

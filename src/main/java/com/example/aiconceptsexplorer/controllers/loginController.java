@@ -18,7 +18,8 @@ public class loginController {
 
     private SqliteUserDAO newUserDAO;
 
-    private Consumer<String> navigateToLearn;
+
+    private Consumer<String> navigateToHome;
 
     private Runnable navigateToSignup;
 
@@ -38,9 +39,9 @@ public class loginController {
         newUserDAO = new SqliteUserDAO();
     }
 
-    public void setNavigation(Consumer<String> toLearn, Runnable toSignup) {
-        this.navigateToLearn = toLearn;
+    public void setNavigation(Consumer<String> toHome, Runnable toSignup) {
         this.navigateToSignup = toSignup;
+        this.navigateToHome = toHome;
     }
 
     @FXML
@@ -51,8 +52,8 @@ public class loginController {
         if (!loginCheck) {
             errorLabel.setText("Incorrect email or password, please try again");
         } else {
-            if (navigateToLearn != null) {
-                navigateToLearn.accept(userEmail);  // Pass email to the next screen
+            if (navigateToHome != null) {
+                navigateToHome.accept(userEmail);  // Pass email to the next screen
             }
         }
     }

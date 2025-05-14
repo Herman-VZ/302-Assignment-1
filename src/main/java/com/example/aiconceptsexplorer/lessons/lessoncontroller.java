@@ -39,14 +39,14 @@ public class lessoncontroller implements Initializable {
 
     private Runnable navigateToLeaderboard;
     private Runnable navigateToAccount;
-    private Runnable navigateToLogin;
+    private Runnable navigateToHome;
     private Runnable navigateToLearn;
 
     // This method allows setting the navigation actions for the controller
-    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toLearn, Runnable toLogin) {
+    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toLearn, Runnable toHome) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToAccount = toAccount;
-        this.navigateToLogin = toLogin;
+        this.navigateToHome = toHome;
         this.navigateToLearn = toLearn;
     }
 
@@ -124,7 +124,7 @@ public class lessoncontroller implements Initializable {
 
     @FXML
     public void onlogoutButtonClick(ActionEvent actionevent) {
-        if (navigateToLogin != null) navigateToLogin.run();
+        if (navigateToHome != null) navigateToHome.run();
     }
 
     @FXML

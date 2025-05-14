@@ -9,6 +9,7 @@ module com.example {
     opens com.example.aiconceptsexplorer.learnscreen to javafx.fxml;
     opens com.example.aiconceptsexplorer.controllers to javafx.fxml;
     opens com.example.aiconceptsexplorer.lessons to javafx.fxml; // ✅ this was missing
+    opens com.example.aiconceptsexplorer.home to javafx.fxml; // Add this line to open the home package
 
     exports com.example;
     exports com.example.aiconceptsexplorer.account;
@@ -16,4 +17,5 @@ module com.example {
     exports com.example.aiconceptsexplorer.learnscreen;
     exports com.example.aiconceptsexplorer.controllers;
     exports com.example.aiconceptsexplorer.lessons;
+    exports com.example.aiconceptsexplorer.home; // Ensure to export the home package
 }

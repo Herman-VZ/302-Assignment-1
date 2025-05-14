@@ -38,7 +38,7 @@ public class LessonController {
     private Runnable navigateToLeaderboard;
     private Runnable navigateToAccount;
     private Runnable navigateToGlossary;
-    private Runnable navigateToLogin;
+    private Runnable navigateToHome;
     private Runnable navigateToSearchLesson;
     private Runnable navigateToSearchQuiz;
 
@@ -56,11 +56,11 @@ public class LessonController {
     private SelectedOption mostRecentSelection = SelectedOption.NONE;
 
     // This method allows setting the navigation actions for the controller
-    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toGlossary, Runnable toLogin, Runnable toSearchQuiz, Runnable toSearchLesson) {
+    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toGlossary, Runnable toHome, Runnable toSearchQuiz, Runnable toSearchLesson) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToAccount = toAccount;
         this.navigateToGlossary = toGlossary;
-        this.navigateToLogin = toLogin;
+        this.navigateToHome = toHome;
         this.navigateToSearchQuiz = toSearchQuiz;
         this.navigateToSearchLesson = toSearchLesson;
     }
@@ -190,8 +190,8 @@ public class LessonController {
 
     @FXML
     public void onlogoutButtonClick (ActionEvent actionevent) {
-        if (navigateToLogin != null) {
-            navigateToLogin.run();
+        if (navigateToHome != null) {
+            navigateToHome.run();
         }
     }
 

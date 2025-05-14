@@ -1,14 +1,15 @@
-package com.example.aiconceptsexplorer.leaderboardscreen;
+package com.example.aiconceptsexplorer.home;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.Region;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.fxml.FXMLLoader;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,36 +17,43 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LeaderController {
+public class HomeScreenController {
+
 
     @FXML
-    private ListView<String> userListView;
+    private ListView<String> leaderboardList;
 
+    private Runnable navigateToLeaderboard;
     private Runnable navigateToAccount;
+    private Runnable navigateToLogin;
     private Runnable navigateToLearn;
-    private Runnable navigateToHome;
+    private Runnable navigateToLesson;
+
+    // This method allows setting the navigation actions for the controller
+    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toLogin, Runnable toLearn, Runnable toLesson) {
+        this.navigateToLeaderboard = toLeaderboard;
+        this.navigateToAccount = toAccount;
+        this.navigateToLogin = toLogin;
+        this.navigateToLearn = toLearn;
+        this.navigateToLesson = toLesson;
+    }
 
     @FXML
     public void initialize() {
         refreshLeaderboard();
     }
 
-    public void setNavigation(Runnable toAccount, Runnable toLearn, Runnable toHome) {
-        this.navigateToAccount = toAccount;
-        this.navigateToLearn = toLearn;
-        this.navigateToHome = toHome;
-    }
-
     private void refreshLeaderboard() {
-        userListView.getItems().clear();
+        leaderboardList.getItems().clear();
 
         // Query to get the user names and scores from the database, ordered by score descending
         List<String> leaderboard = getLeaderboardData();
 
         // Add the leaderboard data to the ListView
-        userListView.getItems().addAll(leaderboard);
+        leaderboardList.getItems().addAll(leaderboard);
     }
 
+    @FXML
     private List<String> getLeaderboardData() {
         List<String> leaderboard = new ArrayList<>();
 
@@ -69,29 +77,39 @@ public class LeaderController {
         return leaderboard;
     }
 
+    // Navigation methods for buttons
     @FXML
-    public void onFirstButtonClick(ActionEvent actionEvent) throws IOException {
+    public void onLeaderboardTabClick(ActionEvent actionEvent) {
+        if (navigateToLeaderboard != null) {
+            navigateToLeaderboard.run();
+        }
+    }
+
+    @FXML
+    public void onAccountTabClick(ActionEvent actionEvent) {
         if (navigateToAccount != null) {
             navigateToAccount.run();
         }
     }
 
     @FXML
-    public void onLogOutClick(ActionEvent actionEvent) throws IOException {
-        if (navigateToHome != null) {
-            navigateToHome.run();
+    public void ContinueLesson(ActionEvent actionEvent) {
+        if (navigateToLesson != null) {
+            navigateToLesson.run();
         }
     }
 
-    @FXML
-    public void onSecondButtonClick(ActionEvent actionEvent) {
-        refreshLeaderboard();
-    }
-
-    @FXML
-    public void onThirdButtonClick(ActionEvent actionEvent) throws IOException {
+    public void onLearnTabClick(ActionEvent actionEvent) {
         if (navigateToLearn != null) {
             navigateToLearn.run();
         }
     }
+
+    @FXML
+    public void onLogoutClick(ActionEvent actionEvent) {
+        if (navigateToLogin != null) {
+            navigateToLogin.run();
+        }
+    }
+
 }

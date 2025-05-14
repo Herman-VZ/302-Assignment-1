@@ -19,6 +19,7 @@ import com.example.aiconceptsexplorer.learnscreen.GlossaryController;
 import com.example.aiconceptsexplorer.controllers.loginController;
 import com.example.aiconceptsexplorer.controllers.signupController;
 import com.example.aiconceptsexplorer.lessons.lessoncontroller;
+import com.example.aiconceptsexplorer.home.HomeScreenController;
 
 public class MainApplication extends Application {
 
@@ -66,7 +67,7 @@ public class MainApplication extends Application {
         controller.setNavigation((String userEmail) -> {
             currentUserEmail = userEmail;  // Capture email after login
             try {
-                loadLearnView();  // Navigate to Learn view after login
+                loadHomeView();  // Navigate to Learn view after login
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -105,7 +106,7 @@ public class MainApplication extends Application {
                 },
                 () -> {
                     try {
-                        loadLoginView();
+                        loadHomeView();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -137,7 +138,7 @@ public class MainApplication extends Application {
                 },
                 () -> {
                     try {
-                        loadLoginView();
+                        loadHomeView();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -176,7 +177,7 @@ public class MainApplication extends Application {
                 },
                 () -> {
                     try {
-                        loadLoginView();
+                        loadHomeView();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -332,7 +333,7 @@ public class MainApplication extends Application {
                 },
                 () -> {
                     try {
-                        loadLoginView(); // This method must exist in your class
+                        loadHomeView(); // This method must exist in your class
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -341,6 +342,54 @@ public class MainApplication extends Application {
 
         primaryStage.setScene(new Scene(root, 1200, 700));
     }
+
+    private void loadHomeView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/home/HomeScreen.fxml"));
+        Parent root = loader.load();
+
+        // Use HomeScreenController instead of lessoncontroller
+        HomeScreenController controller = loader.getController();
+        controller.setNavigation(
+                () -> {
+                    try {
+                        loadLeaderboardView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                },
+                () -> {
+                    try {
+                        loadAccountView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                },
+                () -> {
+                    try {
+                        loadLoginView(); // This method must exist in your class
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                },
+                () -> {
+                    try {
+                        loadLearnView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                },
+                () -> {
+                    try {
+                        loadSearchLessonView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+        );
+
+        primaryStage.setScene(new Scene(root, 1200, 700));
+    }
+
 
 
 

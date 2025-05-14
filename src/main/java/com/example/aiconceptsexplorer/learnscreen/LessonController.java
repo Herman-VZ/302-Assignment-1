@@ -42,6 +42,8 @@ public class LessonController {
     private Runnable navigateToSearchLesson;
     private Runnable navigateToSearchQuiz;
 
+
+
     public enum SelectedOption {
         NONE, // Default state
         LESSONS_CONTINUE,

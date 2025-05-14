@@ -1,12 +1,11 @@
 package com.example.aiconceptsexplorer.controllers;
 
+import com.example.aiconceptsexplorer.learnscreen.LessonController;
 import com.example.aiconceptsexplorer.models.SqliteUserDAO;
 import com.example.aiconceptsexplorer.models.User;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,18 +15,17 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AuthControllerTest {
 
     private signupController signupCtrl;
-    private loginController  loginCtrl;
-    private StubDao          stubDao;
+    private loginController loginCtrl;
+    private StubDao stubDao;
 
     // capture flags
-    private String  loginNavigatedTo;
+    private String loginNavigatedTo;
     private boolean signupRedirected;
 
     /** Stub DAO so we don’t touch a real database */
@@ -63,33 +61,31 @@ public class AuthControllerTest {
     /** Set up controllers, stub DAO, and UI controls */
     @BeforeEach
     void setUp() throws Exception {
-        // instantiate controllers
         signupCtrl = new signupController();
-        loginCtrl  = new loginController();
+        loginCtrl = new loginController();
 
-        // now that toolkit is ready, create controls
-        signupCtrl.name       = new TextField();
-        signupCtrl.email      = new TextField();
-        signupCtrl.password   = new PasswordField();
+        signupCtrl.name = new TextField();
+        signupCtrl.email = new TextField();
+        signupCtrl.password = new PasswordField();
         signupCtrl.errorLabel = new Label();
-        signupCtrl.goodLabel  = new Label();
+        signupCtrl.goodLabel = new Label();
 
-        loginCtrl.email      = new TextField();
-        loginCtrl.password   = new PasswordField();
+        loginCtrl.email = new TextField();
+        loginCtrl.password = new PasswordField();
         loginCtrl.errorLabel = new Label();
 
-        // inject the same stub into both
         stubDao = new StubDao();
         injectDao(signupCtrl, stubDao);
-        injectDao(loginCtrl,  stubDao);
+        injectDao(loginCtrl, stubDao);
 
-        // wire up navigation callbacks
         signupRedirected = false;
         signupCtrl.setNavigation(() -> signupRedirected = true);
 
         loginNavigatedTo = null;
-        loginCtrl.setNavigation(email -> loginNavigatedTo = email,
-                ()    -> signupRedirected = true);
+        loginCtrl.setNavigation(
+                email -> loginNavigatedTo = email,
+                () -> signupRedirected = true
+        );
     }
 
     /** Reflection helper for private field injection */
@@ -109,8 +105,7 @@ public class AuthControllerTest {
 
         signupCtrl.onSignUp();
 
-        assertEquals("Invalid email. Must contain '@' and end with '.com'.",
-                signupCtrl.errorLabel.getText());
+        assertEquals("Invalid email. Must contain '@' and end with '.com'.", signupCtrl.errorLabel.getText());
         assertEquals("", signupCtrl.goodLabel.getText());
     }
 
@@ -122,8 +117,7 @@ public class AuthControllerTest {
 
         signupCtrl.onSignUp();
 
-        assertEquals("Password must be 6+ chars, include a number & special character.",
-                signupCtrl.errorLabel.getText());
+        assertEquals("Password must be 6+ chars, include a number & special character.", signupCtrl.errorLabel.getText());
         assertEquals("", signupCtrl.goodLabel.getText());
     }
 
@@ -137,8 +131,7 @@ public class AuthControllerTest {
 
         signupCtrl.onSignUp();
 
-        assertEquals("This email is already in use, please try another.",
-                signupCtrl.errorLabel.getText());
+        assertEquals("This email is already in use, please try another.", signupCtrl.errorLabel.getText());
         assertTrue(stubDao.addedUsers.isEmpty());
     }
 
@@ -157,9 +150,9 @@ public class AuthControllerTest {
 
         assertEquals(1, stubDao.addedUsers.size());
         User u = stubDao.addedUsers.get(0);
-        assertEquals("Dave",           u.getName());
+        assertEquals("Dave", u.getName());
         assertEquals("dave@example.com", u.getEmail());
-        assertEquals("Strong!9",       u.getPassword());
+        assertEquals("Strong!9", u.getPassword());
     }
 
     @Test
@@ -192,8 +185,7 @@ public class AuthControllerTest {
         loginCtrl.onLogin();
 
         assertNull(loginNavigatedTo);
-        assertEquals("Incorrect email or password, please try again",
-                loginCtrl.errorLabel.getText());
+        assertEquals("Incorrect email or password, please try again", loginCtrl.errorLabel.getText());
     }
 
     @Test
@@ -201,5 +193,54 @@ public class AuthControllerTest {
         signupRedirected = false;
         loginCtrl.onSignupRedirect();
         assertTrue(signupRedirected);
+    }
+
+    // --- lessonController tests ---
+
+    private LessonController lessonCtrl;
+    private boolean leaderboardRedirected;
+    private boolean accountRedirected;
+    private boolean learnScreenShown;
+    private boolean logoutRedirected;
+    private boolean dummy1;
+    private boolean dummy2;
+
+    @BeforeEach
+    void setupLessonController() {
+        lessonCtrl = new LessonController();
+
+        leaderboardRedirected = false;
+        accountRedirected = false;
+        learnScreenShown = false;
+        logoutRedirected = false;
+        dummy1 = false;
+        dummy2 = false;
+
+        lessonCtrl.setNavigation(
+                () -> leaderboardRedirected = true,
+                () -> accountRedirected = true,
+                () -> learnScreenShown = true,
+                () -> logoutRedirected = true,
+                () -> dummy1 = true,
+                () -> dummy2 = true
+        );
+    }
+
+    @Test
+    void lesson_clicksLeaderboard_triggersLeaderboardNavigation() {
+        lessonCtrl.onLeaderboardTabClick(new ActionEvent());
+        assertTrue(leaderboardRedirected);
+    }
+
+    @Test
+    void lesson_clicksAccount_triggersAccountNavigation() {
+        lessonCtrl.onAccountTabClick(new ActionEvent());
+        assertTrue(accountRedirected);
+    }
+
+    @Test
+    void logout_triggersLogoutNavigation() {
+        lessonCtrl.onlogoutButtonClick(new ActionEvent());
+        assertTrue(logoutRedirected);
     }
 }

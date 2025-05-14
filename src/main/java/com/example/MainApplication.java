@@ -1,5 +1,7 @@
 package com.example;
 
+//run here
+
 import com.example.aiconceptsexplorer.learnscreen.SearchLessonController;
 import com.example.aiconceptsexplorer.learnscreen.SearchQuizController;
 import javafx.application.Application;

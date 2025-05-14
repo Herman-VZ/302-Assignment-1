@@ -58,7 +58,7 @@ public class loginController {
     }
 
     @FXML
-    private void onSignupRedirect() throws IOException {
+    void onSignupRedirect() throws IOException {
         if (navigateToSignup != null) {
             navigateToSignup.run();  // Navigate to Signup view
         }

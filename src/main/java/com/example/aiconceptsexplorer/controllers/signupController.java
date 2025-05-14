@@ -77,7 +77,7 @@ public class signupController {
     }
 
     @FXML
-    private void onLoginRedirect(ActionEvent actionEvent) {
+    public void onLoginRedirect(ActionEvent actionEvent) {
         if (navigateToLogIn != null) {
             navigateToLogIn.run();  // Navigate back to Login view
         }

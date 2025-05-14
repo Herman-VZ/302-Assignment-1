@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LessonController {
+public class LearnController {
 
     @FXML
     private VBox lessonOptions;

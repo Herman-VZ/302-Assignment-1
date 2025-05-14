@@ -1,6 +1,6 @@
 package com.example.aiconceptsexplorer.controllers;
 
-import com.example.aiconceptsexplorer.learnscreen.LessonController;
+import com.example.aiconceptsexplorer.learnscreen.LearnController;
 import com.example.aiconceptsexplorer.models.SqliteUserDAO;
 import com.example.aiconceptsexplorer.models.User;
 import javafx.application.Platform;
@@ -197,7 +197,7 @@ public class AuthControllerTest {
 
     // --- lessonController tests ---
 
-    private LessonController lessonCtrl;
+    private LearnController lessonCtrl;
     private boolean leaderboardRedirected;
     private boolean accountRedirected;
     private boolean learnScreenShown;
@@ -207,7 +207,7 @@ public class AuthControllerTest {
 
     @BeforeEach
     void setupLessonController() {
-        lessonCtrl = new LessonController();
+        lessonCtrl = new LearnController();
 
         leaderboardRedirected = false;
         accountRedirected = false;

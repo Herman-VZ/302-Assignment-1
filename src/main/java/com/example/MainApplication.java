@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.example.aiconceptsexplorer.account.AccountController;
-import com.example.aiconceptsexplorer.learnscreen.LessonController;
+import com.example.aiconceptsexplorer.learnscreen.LearnController;
 import com.example.aiconceptsexplorer.leaderboardscreen.LeaderController;
 import com.example.aiconceptsexplorer.learnscreen.GlossaryController;
 import com.example.aiconceptsexplorer.controllers.loginController;
@@ -152,7 +152,7 @@ public class MainApplication extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/learnscreen/learn.fxml"));
         Parent root = loader.load();
 
-        LessonController controller = loader.getController();
+        LearnController controller = loader.getController();
         controller.setNavigation(
                 () -> {
                     try {

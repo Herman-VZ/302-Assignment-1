@@ -16,6 +16,7 @@ public class SearchLessonController {
     private Runnable navigateToAccount;
     private Runnable navigateToLeaderboard;
     private Runnable navigateToLearn;
+    private Runnable navigateToLesson;
 
     @FXML
     private TextField searchField;
@@ -52,15 +53,18 @@ public class SearchLessonController {
         }
     }
 
-    public void setNavigation(Runnable toAccount, Runnable toLeaderboard, Runnable toLearn) {
+    public void setNavigation(Runnable toAccount, Runnable toLeaderboard, Runnable toLearn, Runnable toLesson) {
         this.navigateToAccount = toAccount;
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToLearn = toLearn;
+        this.navigateToLesson= toLesson;
     }
 
     @FXML
     private void onStartLessonClick(ActionEvent event) {
-        System.out.println("Start Lesson clicked");
+        if (navigateToLesson != null) {
+            navigateToLesson.run();
+        }
     }
 
     @FXML

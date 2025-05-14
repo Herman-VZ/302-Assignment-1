@@ -16,6 +16,7 @@ import com.example.aiconceptsexplorer.leaderboardscreen.LeaderController;
 import com.example.aiconceptsexplorer.learnscreen.GlossaryController;
 import com.example.aiconceptsexplorer.controllers.loginController;
 import com.example.aiconceptsexplorer.controllers.signupController;
+import com.example.aiconceptsexplorer.lessons.lessoncontroller;
 
 public class MainApplication extends Application {
 
@@ -287,11 +288,59 @@ public class MainApplication extends Application {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                },
+                () -> {
+                    try {
+                        loadLessonView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
         );
 
         primaryStage.setScene(new Scene(root, 1200, 700));
     }
+
+    private void loadLessonView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/lessons/lessonscreen.fxml"));
+        Parent root = loader.load();
+
+        lessoncontroller controller = loader.getController();
+        controller.setNavigation(
+                () -> {
+                    try {
+                        loadLeaderboardView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                },
+                () -> {
+                    try {
+                        loadAccountView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                },
+                () -> {
+                    try {
+                        loadLearnView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                },
+                () -> {
+                    try {
+                        loadLoginView(); // This method must exist in your class
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+        );
+
+        primaryStage.setScene(new Scene(root, 1200, 700));
+    }
+
+
 
     public static void main(String[] args) {
         launch(args);

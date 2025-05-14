@@ -7,11 +7,13 @@ module com.example {
     opens com.example.aiconceptsexplorer.account to javafx.fxml;
     opens com.example.aiconceptsexplorer.leaderboardscreen to javafx.fxml;
     opens com.example.aiconceptsexplorer.learnscreen to javafx.fxml;
-    opens com.example.aiconceptsexplorer.controllers to javafx.fxml; // ✅ added this
+    opens com.example.aiconceptsexplorer.controllers to javafx.fxml;
+    opens com.example.aiconceptsexplorer.lessons to javafx.fxml; // ✅ this was missing
 
     exports com.example;
     exports com.example.aiconceptsexplorer.account;
     exports com.example.aiconceptsexplorer.leaderboardscreen;
     exports com.example.aiconceptsexplorer.learnscreen;
-    exports com.example.aiconceptsexplorer.controllers; // ✅ added this
+    exports com.example.aiconceptsexplorer.controllers;
+    exports com.example.aiconceptsexplorer.lessons;
 }

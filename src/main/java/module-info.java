@@ -10,6 +10,7 @@ module com.example {
     opens com.example.aiconceptsexplorer.controllers to javafx.fxml;
     opens com.example.aiconceptsexplorer.lessons to javafx.fxml; // ✅ this was missing
     opens com.example.aiconceptsexplorer.home to javafx.fxml; // Add this line to open the home package
+    opens com.example.aiconceptsexplorer.quizzes to javafx.fxml; // ✅ added for QuizPageController
 
     exports com.example;
     exports com.example.aiconceptsexplorer.account;

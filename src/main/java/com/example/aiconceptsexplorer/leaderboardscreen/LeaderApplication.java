@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 
+
 public class LeaderApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -18,7 +19,6 @@ public class LeaderApplication extends Application {
             userDAO.addUser("John Doe", "johndoe@example.com", 1500);
             userDAO.addUser("Jane Smith", "janesmith@example.com", 2200);
             userDAO.addUser("Alice Johnson", "alicejohnson@example.com", 1800);
-            userDAO.updateScore("John Doe", 1600);
         }
 
         FXMLLoader fxmlLoader = new FXMLLoader(LeaderApplication.class.getResource("leaderboard-view.fxml"));

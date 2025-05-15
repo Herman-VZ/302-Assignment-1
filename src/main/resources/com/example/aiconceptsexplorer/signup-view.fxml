@@ -11,9 +11,9 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <TextField promptText="Name" fx:id="Name"/>
-      <TextField promptText="Email" fx:id="Email"/>
-      <PasswordField promptText="Password" fx:id="Password"/>
+      <TextField promptText="Name" fx:id="name"/>
+      <TextField promptText="Email" fx:id="email"/>
+      <PasswordField promptText="Password" fx:id="password"/>
       <Button mnemonicParsing="false" text="Sign Up" onAction="#onSignUp"/>
       <Label fx:id="goodLabel" textFill="GREEN" />
       <Label fx:id="errorLabel" textFill="RED" />

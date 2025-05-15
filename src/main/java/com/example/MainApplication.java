@@ -1,6 +1,6 @@
 package com.example;
 
-//run here
+//commit message updated :3
 
 import com.example.aiconceptsexplorer.learnscreen.SearchLessonController;
 import com.example.aiconceptsexplorer.learnscreen.SearchQuizController;
@@ -20,6 +20,8 @@ import com.example.aiconceptsexplorer.controllers.loginController;
 import com.example.aiconceptsexplorer.controllers.signupController;
 import com.example.aiconceptsexplorer.lessons.lessoncontroller;
 import com.example.aiconceptsexplorer.home.HomeScreenController;
+import com.example.aiconceptsexplorer.quizzes.QuizPageController;
+import com.example.aiconceptsexplorer.leaderboardscreen.UserDAO;
 
 public class MainApplication extends Application {
 
@@ -259,6 +261,13 @@ public class MainApplication extends Application {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                },
+                () -> {
+                    try {
+                        loadQuizzView();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
         );
 
@@ -389,6 +398,35 @@ public class MainApplication extends Application {
 
         primaryStage.setScene(new Scene(root, 1200, 700));
     }
+
+    private void loadQuizzView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/quizz/Quiz.fxml"));
+        Parent root = loader.load();
+
+        QuizPageController controller = loader.getController();
+        // pass the logged-in user email
+        controller.setCurrentUserEmail(currentUserEmail);
+        // inject a new UserDAO so updateUserScore(...) won't be null
+        controller.setUserDAO(new UserDAO());
+        // wire up the tab navigation
+        controller.setNavigation(
+                () -> {
+                    try { loadLeaderboardView(); }
+                    catch (IOException e) { e.printStackTrace(); }
+                },
+                () -> {
+                    try { loadAccountView(); }
+                    catch (IOException e) { e.printStackTrace(); }
+                },
+                () -> {
+                    try { loadLearnView(); }
+                    catch (IOException e) { e.printStackTrace(); }
+                }
+        );
+
+        primaryStage.setScene(new Scene(root, 1200, 700));
+    }
+
 
 
 

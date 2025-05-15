@@ -1,5 +1,7 @@
 package com.example.aiconceptsexplorer.leaderboardscreen;
 
+import com.example.aiconceptsexplorer.models.SqliteConnection;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +10,7 @@ public class UserDAO {
     private Connection connection;
 
     public UserDAO() {
-        this.connection = LeaderDatabaseConnection.connect();
+        this.connection = SqliteConnection.getInstance();
     }
 
     public List<String> getLeaderboard() {
@@ -32,17 +34,24 @@ public class UserDAO {
         return leaderboard;
     }
 
-    // ... rest of the UserDAO methods remain the same ...
-    public void updateScore(String name, int score) {
-        String query = "UPDATE users SET score = ? WHERE name = ?";
-        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
-            pstmt.setInt(1, score);
-            pstmt.setString(2, name);
-            pstmt.executeUpdate();
+
+    public void updateUserScore(String email, int increment) {
+        String sql = "UPDATE users SET score = score + ? WHERE email = ?";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, increment);
+            pstmt.setString(2, email);
+
+            int rows = pstmt.executeUpdate();
+            System.out.println("⚙️ updateUserScore called: email=" + email
+                    + ", increment=" + increment
+                    + " → rows affected = " + rows);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+
 
     public void addUser(String name, String email, int score) {
         String query = "INSERT INTO users (name, email, score) VALUES (?, ?, ?)";

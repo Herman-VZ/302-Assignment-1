@@ -4,11 +4,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+import com.example.aiconceptsexplorer.quizzes.QuizPageController;
 
 
 public class SearchQuizController {
@@ -16,6 +24,7 @@ public class SearchQuizController {
     private Runnable navigateToAccount;
     private Runnable navigateToLeaderboard;
     private Runnable navigateToLearn;
+    private Runnable navigateToQuizz;
 
     @FXML
     private TextField searchField;
@@ -50,17 +59,21 @@ public class SearchQuizController {
                     .collect(Collectors.toList());
             quizList.setItems(FXCollections.observableArrayList(filtered));
         }
+
     }
 
-    public void setNavigation(Runnable toAccount, Runnable toLeaderboard, Runnable toLearn) {
-        this.navigateToAccount = toAccount;
+    public void onStartQuizClick(ActionEvent actionEvent) {
+        if (navigateToQuizz != null) {
+            navigateToQuizz.run();
+        }
+    }
+
+
+    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toLearn, Runnable toQuizz) {
         this.navigateToLeaderboard = toLeaderboard;
+        this.navigateToAccount = toAccount;
         this.navigateToLearn = toLearn;
-    }
-
-    @FXML
-    private void onStartQuizClick(ActionEvent event) {
-        System.out.println("Start Quiz clicked");
+        this.navigateToQuizz = toQuizz;
     }
 
     @FXML

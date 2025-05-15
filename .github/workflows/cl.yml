@@ -1,13 +1,7 @@
-name: Build and Test JavaFX Application
+name: Build and Test JavaFX Application manually
 
 # Trigger workflow on push or pull request to main branch
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       LogLevel:

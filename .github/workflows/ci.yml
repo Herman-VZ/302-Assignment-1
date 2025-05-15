@@ -8,14 +8,6 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      LogLevel:
-        description: "log level"
-        required: true
-        default: "warning"
-      tags:
-        description: "Manual test"
 
 jobs:
   build:

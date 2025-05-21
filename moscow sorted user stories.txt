@@ -1,0 +1,77 @@
+Must Have
+(Critical for MVP, core learning experience)
+
+Lesson Browsing & Selection
+→ Fundamental for any learning platform to function.
+
+Quizzes with Feedback
+→ Enables assessment and reinforces learning.
+
+Track Learning Progress
+→ Users need to monitor their journey to stay engaged.
+
+Beginner-to-Advanced Learning Flow
+→ Helps scaffold learning, crucial for comprehension.
+
+Glossary of AI Terms
+→ Necessary for users to understand technical content.
+
+Basic Introduction Lessons
+→ Supports entry-level learners, preventing early dropout.
+
+_______________________________________________________________________________
+
+Should Have
+(Important but not vital for initial release)
+
+Suggested Lessons Based on Progress
+→ Improves personalization and learning efficiency.
+
+Animated Explanations
+→ Strong aid for visual learners, boosts retention.
+
+Keyword Search for Topics
+→ Enhances content discovery and user control.
+
+Low Score Tips
+→ Directly supports improvement, reduces user frustration.
+
+Weekly Goal Setting
+→ Promotes consistency, aiding long-term engagement.
+
+Interactive Simulations
+→ Deepens conceptual understanding through practice.
+
+_______________________________________________________________________________
+
+Could Have
+(Nice to have but not essential)
+
+Points and Rewards System
+→ Adds gamification but not crucial to learning outcomes.
+
+Leaderboard System
+→ Motivates some learners but not necessary for all.
+
+Learning Streak Counter
+→ Encourages habit-building, but secondary.
+
+Drag-and-Drop Quiz Questions
+→ Adds variety to interaction, not essential for feedback.
+
+Peer Comments
+→ Helpful for community learning, but requires moderation.
+
+_______________________________________________________________________________
+
+Won’t Have (for now)
+(Not prioritized in current phase)
+
+Teacher Uploading Custom Questions
+→ Advanced feature, useful in institutional settings, not MVP.
+
+Create & Host Quizzes (Live)
+→ Requires complex real-time infrastructure.
+
+Teacher Progress Tracking
+→ Important for educator-side development but not learner-focused MVP.

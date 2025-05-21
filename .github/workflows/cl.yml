@@ -1,0 +1,49 @@
+name: Build and Test JavaFX Application manually
+
+# Trigger workflow on push or pull request to main branch
+on:
+  workflow_dispatch:
+    inputs:
+      LogLevel:
+        description: "log level"
+        required: true
+        default: "warning"
+      tags:
+        description: "Manual test"
+
+jobs:
+  build:
+    runs-on: windows-latest  # You can change this to macos-latest or ubuntu-latest if needed
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up JDK 21
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      # Cache Maven dependencies
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ runner.os == 'Windows' && 'C:/Users/runneradmin/.m2/repository' || '/home/runner/.m2/repository' }}
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # Install dependencies (skip tests here)
+      - name: Install dependencies
+        run: mvn install -DskipTests=true
+
+      # Run unit tests
+      - name: Run tests
+        run: mvn test
+
+      # Build the project (skip tests again since they already ran)
+      - name: Build the project
+        run: mvn package -DskipTests=true

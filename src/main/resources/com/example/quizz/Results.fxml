@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.aiconceptsexplorer.quizzes.ResultsController"
+      alignment="TOP_CENTER"
+      spacing="20"
+      style="-fx-background-color: #768381;"
+      prefHeight="700.0"
+      prefWidth="1200.0">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header Banner -->
+    <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0"
+          style="-fx-background-color: #619BA0; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+        <Label text="Quiz Results" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <!-- Results Content -->
+    <VBox spacing="20" alignment="TOP_CENTER" style="-fx-background-color: #619BA0; -fx-padding: 20px; -fx-background-radius: 5;">
+        <Label fx:id="scoreLabel" style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <Label text="Incorrect Answers:" style="-fx-text-fill: white; -fx-font-size: 18px;"/>
+
+        <ListView fx:id="resultsList" prefHeight="400" prefWidth="1000" style="-fx-background-color: #4D6F6C; -fx-control-inner-background: #4D6F6C; -fx-text-fill: white;"/>
+
+        <Button text="Back to Learn" onAction="#handleClose"
+                style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-pref-width: 200px;"/>
+        <Button fx:id="explainButton" text="Explain Answers" onAction="#onExplainClick"
+                style="-fx-background-color: #686b6e; -fx-text-fill: white;" />
+    </VBox>
+</VBox>

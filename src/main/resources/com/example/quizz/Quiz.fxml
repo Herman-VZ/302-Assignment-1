@@ -66,10 +66,6 @@
         <HBox spacing="20.0" alignment="CENTER">
             <Button fx:id="submitButton" text="Submit" onAction="#onSubmitClick" prefWidth="120.0"
                     style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;"/>
-
-            <Button fx:id="finishButton" text="Finish" onAction="#onFinishClick" prefWidth="120.0"
-                    visible="false"
-                    style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;"/>
         </HBox>
     </VBox>
 </VBox>

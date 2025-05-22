@@ -1,17 +1,15 @@
 package com.example;
 
-//commit message updated :3
-
 import com.example.aiconceptsexplorer.learnscreen.SearchLessonController;
 import com.example.aiconceptsexplorer.learnscreen.SearchQuizController;
+import com.example.aiconceptsexplorer.quizzes.ResultsController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
+import java.util.List;
 import com.example.aiconceptsexplorer.account.AccountController;
 import com.example.aiconceptsexplorer.learnscreen.LearnController;
 import com.example.aiconceptsexplorer.leaderboardscreen.LeaderController;
@@ -404,11 +402,8 @@ public class MainApplication extends Application {
         Parent root = loader.load();
 
         QuizPageController controller = loader.getController();
-        // pass the logged-in user email
         controller.setCurrentUserEmail(currentUserEmail);
-        // inject a new UserDAO so updateUserScore(...) won't be null
         controller.setUserDAO(new UserDAO());
-        // wire up the tab navigation
         controller.setNavigation(
                 () -> {
                     try { loadLeaderboardView(); }
@@ -421,6 +416,12 @@ public class MainApplication extends Application {
                 () -> {
                     try { loadLearnView(); }
                     catch (IOException e) { e.printStackTrace(); }
+                },
+                (resultsData) -> {
+                    try {
+                        loadResultsView(resultsData.score, resultsData.total, resultsData.incorrectResults);
+                    }
+                    catch (IOException e) { e.printStackTrace(); }
                 }
         );
 
@@ -428,7 +429,22 @@ public class MainApplication extends Application {
     }
 
 
+    private void loadResultsView(int score, int total, List<String> incorrectResults) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/quizz/Results.fxml"));
+        Parent root = loader.load();
 
+        ResultsController controller = loader.getController();
+        controller.initializeResults(score, total, incorrectResults);
+        controller.setNavigation(() -> {
+            try {
+                loadLearnView();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        primaryStage.setScene(new Scene(root, 1200, 700));
+    }
 
 
     public static void main(String[] args) {

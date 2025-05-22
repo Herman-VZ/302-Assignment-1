@@ -7,12 +7,12 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class QuizPageController {
 
     @FXML private VBox questionsBox;
     @FXML private Button submitButton;
-    @FXML private Button finishButton;
 
     private final List<ToggleGroup> toggleGroups = new ArrayList<>();
     private final List<Integer> correctAnswers = new ArrayList<>();
@@ -20,9 +20,11 @@ public class QuizPageController {
     private Runnable navigateToAccount;
     private Runnable navigateToLeaderboard;
     private Runnable navigateToLearn;
+    private Consumer<ResultsData> navigateToResults;
 
     private String currentUserEmail;
     private UserDAO userDAO;
+
 
     public void setCurrentUserEmail(String email) {
         this.currentUserEmail = email;
@@ -67,26 +69,31 @@ public class QuizPageController {
     @FXML
     private void onSubmitClick() {
         int score = 0;
+        int total = toggleGroups.size();
+        List<String> incorrectResults = new ArrayList<>();
 
         for (int i = 0; i < toggleGroups.size(); i++) {
             ToggleGroup group = toggleGroups.get(i);
             int correctIndex = correctAnswers.get(i);
-
             Toggle selected = group.getSelectedToggle();
+
+            Label questionLabel = (Label) questionsBox.getChildren().get(i * 2);
+            String questionText = questionLabel.getText().substring(3);
+
             if (selected != null) {
                 RadioButton selectedButton = (RadioButton) selected;
                 RadioButton correctButton = (RadioButton) group.getToggles().get(correctIndex);
                 if (selectedButton == correctButton) {
                     score++;
+                } else {
+                    incorrectResults.add(
+                            (i+ 1) + ". " + questionText +
+                                    "\nYour Answer: " + selectedButton.getText() +
+                                    "\nCorrect Answer: " + correctButton.getText()
+                    );
                 }
             }
         }
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Quiz Submitted");
-        alert.setHeaderText(null);
-        alert.setContentText("You scored " + score + " out of " + toggleGroups.size() + "!");
-        alert.showAndWait();
 
         if (currentUserEmail != null) {
             System.out.println("QuizPageController: email=" + currentUserEmail + ", correctCount=" + score);
@@ -103,19 +110,32 @@ public class QuizPageController {
         }
 
         submitButton.setDisable(true);
-        finishButton.setVisible(true);
+
+        if (navigateToResults != null) {
+            navigateToResults.accept(new ResultsData(score, total, incorrectResults));
+        }
     }
 
-    @FXML
-    public void onFinishClick() {
-        onSubmitClick(); // Optional reuse
+
+    public static class ResultsData {
+        public final int score;
+        public final int total;
+        public final List<String> incorrectResults;
+
+        public ResultsData(int score, int total, List<String> incorrectResults) {
+            this.score = score;
+            this.total = total;
+            this.incorrectResults = incorrectResults;
+        }
     }
 
-    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toLearn) {
+    public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toLearn, Consumer<ResultsData> ToResults) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToAccount = toAccount;
         this.navigateToLearn = toLearn;
+        this.navigateToResults = ToResults;
     }
+
 
     @FXML
     public void onAccountTabClick() {

@@ -4,15 +4,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.lessons.lessoncontroller">
 
     <!-- Raised grey banner -->
     <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0" style="-fx-background-color: #243a5e; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5);">
         <Region prefHeight="47.0" prefWidth="44.0" />
-        <Button onAction="#onFirstButtonClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Learn" />
+        <Button onAction="#onFirstButtonClick" prefHeight="156.0" prefWidth="174.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="LEARN">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
         <Region prefHeight="47.0" prefWidth="115.0" />
-        <Button onAction="#onLeaderboardTabClick" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Leaderboard" />
+        <Button onAction="#onLeaderboardTabClick" prefHeight="191.0" prefWidth="195.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="LEADERBOARD">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
         <Region prefHeight="47.0" prefWidth="19.0" HBox.hgrow="SOMETIMES" />
         <Button onAction="#onAccountTabClick" style="-fx-background-color: white; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 40px; -fx-min-height: 40px; -fx-max-width: 40px; -fx-max-height: 40px; -fx-alignment: center;">
             <graphic>
@@ -62,5 +69,8 @@
         <Button fx:id="prevButton" onAction="#onPrevClick" text="Previous" />
         <Button fx:id="nextButton" onAction="#onNextClick" text="Next" />
     </HBox>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 
 </VBox>

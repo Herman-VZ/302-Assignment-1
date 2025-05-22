@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.learnscreen.LearnController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <!-- Raised grey banner -->
+    <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0" style="-fx-background-color: #243a5e; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+      <Region prefHeight="47.0" prefWidth="44.0" />
+        <Button onAction="#onFirstButtonClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4);" text="LEARN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <Region prefHeight="47.0" prefWidth="115.0" />
+        <Button onAction="#onLeaderboardTabClick" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4);" text="LEADERBOARD" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+        <Region prefHeight="47.0" prefWidth="19.0" HBox.hgrow="SOMETIMES" />
+        <Button onAction="#onAccountTabClick" style="-fx-background-color: #ffffff; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 40px; -fx-min-height: 40px; -fx-max-width: 40px; -fx-max-height: 40px; -fx-alignment: center;">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/Profile.png" />
+               </image></ImageView>
+         </graphic></Button>
+      <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="48.0" style="-fx-background-color: #ffffff; -fx-text-fill: white;">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/Settings.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#onlogoutButtonClick" style="-fx-background-color: #ffffff;">
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/Exit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+    </HBox>
+
+    <HBox alignment="TOP_CENTER" prefHeight="600" prefWidth="1100" spacing="20.0" style="-fx-background-color: linear-gradient(to bottom,  #dde3e6 50%, #dde3e6); -fx-background-radius: 5; -fx-padding: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5);">
+
+        <VBox alignment="TOP_CENTER" prefHeight="560" prefWidth="1100">
+            <!-- Top space: 75% of height -->
+            <Region prefHeight="140" />
+
+            <!-- Buttons row -->
+            <HBox alignment="CENTER" spacing="250">
+                <Button onAction="#onLessonButtonClick" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 100; -fx-border-width: 1.5;">
+               <graphic>
+                  <ImageView fx:id="myImageView" fitHeight="109.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/Lesson.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+
+                <Button onAction="#onQuizButtonClick" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 100; -fx-border-width: 1.5;">
+               <graphic>
+                  <ImageView fitHeight="73.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/Quiz.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+
+                <Button onAction="#onGlossaryButtonClick" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 100; -fx-border-width: 1.5;">
+               <graphic>
+                  <ImageView fitHeight="77.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/Glossary.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            </HBox>
+
+            <Region prefHeight="150" />
+            <!-- Line below the buttons -->
+            <Rectangle arcHeight="10" arcWidth="10" fill="#243a5e" height="3" width="1000">
+                <effect>
+                    <DropShadow color="#ffffff99" radius="30" spread="0.2" />
+                </effect>
+            </Rectangle>
+
+            <Region prefHeight="175.0" prefWidth="1000.0" />
+
+            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="1000.0" spacing="250">
+
+                <VBox fx:id="lessonOptions" spacing="10" visible="false">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Polygon fx:id="continueLessonDiamond" fill="#E6E6E6" points="5,0,10,5,5,10,0,5" />
+                        <Button onAction="#onContinueLessonButtonClick" style="-fx-background-color: #1E7779; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Continue lessons" />
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Polygon fx:id="searchLessonDiamond" fill="#A6A6A6" points="5,0,10,5,5,10,0,5" />
+                        <Button onAction="#onSearchLessonButtonClick" style="-fx-background-color: #1E7779; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Search for new lessons" />
+                    </HBox>
+                </VBox>
+
+                <VBox fx:id="quizOptions" spacing="10" visible="false">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Polygon fx:id="continueQuizDiamond" fill="#E6E6E6" points="5,0,10,5,5,10,0,5" />
+                        <Button onAction="#onContinueQuizButtonClick" style="-fx-background-color: #1E7779; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Continue quiz" />
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Polygon fx:id="searchQuizDiamond" fill="#A6A6A6" points="5,0,10,5,5,10,0,5" />
+                        <Button onAction="#onSearchQuizButtonClick" style="-fx-background-color: #1E7779; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Search for new quizzes" />
+                    </HBox>
+                </VBox>
+
+                <VBox fx:id="glossaryOptions" spacing="10" visible="false">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Polygon fx:id="continueGlossaryDiamond" fill="#E6E6E6" points="5,0,10,5,5,10,0,5" />
+                        <Button onAction="#onContinueGlossaryButtonClick" style="-fx-background-color: #1E7779; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Continue glossary" />
+                    </HBox>
+                </VBox>
+
+            </HBox>
+
+            <!-- Bottom space: 25% of height -->
+            <Region prefHeight="305.0" prefWidth="1000.0" />
+
+            <!-- Add Confirm Button Here -->
+            <HBox alignment="CENTER" spacing="10" style="-fx-padding: 20 0 0 0;">
+                <Button fx:id="confirmButton" onAction="#onConfirmButtonClick" prefHeight="40" prefWidth="200" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 5; -fx-border-width: 1.5;" text="CONFIRM">
+                    <padding>
+                        <Insets bottom="5" left="10" right="10" top="5" />
+                    </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+                </Button>
+            </HBox>
+
+        </VBox>
+    </HBox>
+</VBox>

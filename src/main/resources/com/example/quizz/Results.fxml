@@ -34,5 +34,7 @@
 
         <Button text="Back to Learn" onAction="#handleClose"
                 style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-pref-width: 200px;"/>
+        <Button fx:id="explainButton" text="Explain Answers" onAction="#onExplainClick"
+                style="-fx-background-color: #686b6e; -fx-text-fill: white;" />
     </VBox>
 </VBox>

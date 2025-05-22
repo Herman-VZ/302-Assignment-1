@@ -1,7 +1,7 @@
 module com.example {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.sql;
+    requires org.xerial.sqlitejdbc;
 
     opens com.example to javafx.graphics;
     opens com.example.aiconceptsexplorer.account to javafx.fxml;

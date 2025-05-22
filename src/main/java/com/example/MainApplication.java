@@ -1,7 +1,5 @@
 package com.example;
 
-//commit message updated :3
-
 import com.example.aiconceptsexplorer.learnscreen.SearchLessonController;
 import com.example.aiconceptsexplorer.learnscreen.SearchQuizController;
 import com.example.aiconceptsexplorer.quizzes.ResultsController;
@@ -10,10 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.List;
-
 import com.example.aiconceptsexplorer.account.AccountController;
 import com.example.aiconceptsexplorer.learnscreen.LearnController;
 import com.example.aiconceptsexplorer.leaderboardscreen.LeaderController;

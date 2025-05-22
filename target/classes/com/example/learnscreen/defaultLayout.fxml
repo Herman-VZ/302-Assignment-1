@@ -14,12 +14,12 @@
     <!-- Raised grey banner -->
     <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="1100" spacing="20.0" style="-fx-background-color: #243a5e; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5);">
       <Region prefHeight="47.0" prefWidth="44.0" />
-        <Button onAction="#onFirstButtonClick" prefHeight="104.0" prefWidth="165.0" style="-fx-background-color: #0078d7; -fx-text-fill: white;" text="LEARN">
+        <Button onAction="#onFirstButtonClick" prefHeight="258.0" prefWidth="149.0" style="-fx-background-color: #0078d7; -fx-text-fill: white;" text="LEARN">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
       <Region prefHeight="47.0" prefWidth="115.0" />
-        <Button onAction="#onSecondButtonClick" prefHeight="85.0" prefWidth="189.0" style="-fx-background-color: #0078d7; -fx-text-fill: white;" text="LEADERBOARD">
+        <Button onAction="#onSecondButtonClick" prefHeight="133.0" prefWidth="176.0" style="-fx-background-color: #0078d7; -fx-text-fill: white;" text="LEADERBOARD">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>

@@ -13,11 +13,11 @@
 
 
     <!-- Raised grey banner -->
-    <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0" style="-fx-background-color: #243a5e; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5);">
+    <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="1100" spacing="20.0" style="-fx-background-color: #243a5e; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5);">
         <Region prefHeight="47.0" prefWidth="34.0" />
-        <Button onAction="#onLearnTabClick" prefHeight="93.0" prefWidth="190.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="LEARN">
+        <Button onAction="#onLearnTabClick" prefHeight="93.0" prefWidth="190.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="LEARN">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Button>
         <Region prefHeight="47.0" prefWidth="69.0" />
         <Button onAction="#onLeaderboardTabClick" prefHeight="76.0" prefWidth="207.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="LEADERBOARD">

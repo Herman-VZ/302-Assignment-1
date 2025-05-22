@@ -14,7 +14,7 @@
     </padding>
 
     <!-- Raised grey banner -->
-    <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0" style="-fx-background-color: #243a5e; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+    <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="760.0" spacing="20.0" style="-fx-background-color: #243a5e; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
       <Region prefHeight="47.0" prefWidth="44.0" />
         <Button onAction="#onFirstButtonClick" prefHeight="112.0" prefWidth="192.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4);" text="LEARN" textFill="WHITE">
          <font>

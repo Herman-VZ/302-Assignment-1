@@ -4,15 +4,26 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manages database operations for user accounts using SQLite.
+ * Provides methods to initialise the database and fetch user info.
+ */
 public class AccountDatabaseManager {
 
+    /**
+     * Establishes & returns a connection to the SQLite database.
+     */
     private static final String URL = "jdbc:sqlite:database.db";
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL);
     }
 
-    // Method to initialize the database
+    /**
+     * Initializes the database by creating the 'users' table if it does not exist.
+     * The table includes columns for id, email, password, latest lesson,
+     * latest achievement, lesson streak, achievement, score and medal.
+     */
     public static void initializeDatabase() {
         try (Connection connection = getConnection()) {
             Statement statement = connection.createStatement();
@@ -34,7 +45,9 @@ public class AccountDatabaseManager {
         }
     }
 
-    // Fetch all usernames and their latest lesson, achievement, and streak from the database
+    /**
+     * Fetch all usernames and their latest lesson, achievement, and streak from the database
+     */
     public static List<String> getAllUserNames() {
         List<String> userNames = new ArrayList<>();
         try (Connection connection = getConnection()) {

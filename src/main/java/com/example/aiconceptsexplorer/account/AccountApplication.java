@@ -7,7 +7,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The AccountApplication class is the entry point for the JavaFX application.
+ * Initialises the SQLite DB, loads the main FXML view, and displays the primary stage.
+ */
 public class AccountApplication extends Application {
+    /**
+     * Starts thr JavaFX application.
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         // Initialize the SQLite database and sample users
@@ -19,6 +28,10 @@ public class AccountApplication extends Application {
         stage.show();
     }
 
+    /**
+     * The main entry point for the application.
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }

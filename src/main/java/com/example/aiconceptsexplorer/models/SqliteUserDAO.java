@@ -17,7 +17,7 @@ public class SqliteUserDAO implements IUserDAO {
             Statement statement = connection.createStatement();
             String query = "CREATE TABLE IF NOT EXISTS users ("
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "name VARCHAR NOT NULL, "
+                    + "name VARCHAR, "
                     + "email VARCHAR NOT NULL, "
                     + "password VARCHAR NOT NULL, "
                     + "latest_achievement TEXT, "
@@ -112,4 +112,6 @@ public class SqliteUserDAO implements IUserDAO {
         }
         return false;
     }
+
+
 }

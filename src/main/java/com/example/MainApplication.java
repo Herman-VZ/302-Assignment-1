@@ -287,8 +287,9 @@ public class MainApplication extends Application {
     private void loadSearchLessonView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/learnscreen/SearchLessons.fxml"));
         Parent root = loader.load();
-
         SearchLessonController controller = loader.getController();
+        controller.setCurrentUserEmail(currentUserEmail); // ✅ Pass email to AccountController
+        controller.setUserDAO(new UserDAO());
         controller.setNavigation(
                 () -> {
                     try {

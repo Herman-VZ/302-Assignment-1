@@ -1,5 +1,7 @@
 package com.example.aiconceptsexplorer.learnscreen;
 
+import com.example.aiconceptsexplorer.leaderboardscreen.UserDAO;
+import com.example.aiconceptsexplorer.models.SqliteUserDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +22,17 @@ public class SearchLessonController {
 
     @FXML
     private TextField searchField;
+
+    private String currentUserEmail;
+    private UserDAO userDAO;
+
+    public void setCurrentUserEmail(String email) {
+        this.currentUserEmail = email;
+    }
+
+    public void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
     public static boolean lesson_started = false;
 
@@ -66,8 +79,11 @@ public class SearchLessonController {
     private void onStartLessonClick(ActionEvent event) {
         if (navigateToLesson != null) {
             navigateToLesson.run();
-            lesson_started = true;
+
+            System.out.println("QuizPageController: email=" + currentUserEmail);
+            userDAO.updateUserLesson(currentUserEmail,"Intro to ai");
         }
+
     }
 
     @FXML

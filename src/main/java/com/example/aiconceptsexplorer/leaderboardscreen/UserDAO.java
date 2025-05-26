@@ -64,4 +64,16 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
+    public void updateUserLesson(String email, String latest_lesson) {
+        String query = "UPDATE users SET latest_lesson = ? WHERE email = ?";
+        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setString(1, latest_lesson);  // Set the new lesson
+            pstmt.setString(2, email);          // Identify the user by email
+            pstmt.executeUpdate();              // Execute the update
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

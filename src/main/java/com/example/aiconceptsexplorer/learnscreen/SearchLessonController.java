@@ -21,6 +21,8 @@ public class SearchLessonController {
     @FXML
     private TextField searchField;
 
+    public static boolean lesson_started = false;
+
     @FXML
     private ListView<String> LessonList;
 
@@ -64,6 +66,7 @@ public class SearchLessonController {
     private void onStartLessonClick(ActionEvent event) {
         if (navigateToLesson != null) {
             navigateToLesson.run();
+            lesson_started = true;
         }
     }
 

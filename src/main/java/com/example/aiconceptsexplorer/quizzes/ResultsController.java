@@ -35,12 +35,22 @@ public class ResultsController {
                     setText(null);
                     setGraphic(null);
                 } else {
-                    setText(item);
-                    setStyle("-fx-text-fill: white; -fx-font-size: 14px;");
+                    // Create a Label or Text to wrap the text
+                    Label label = new Label(item);
+                    label.setWrapText(true); // Enable text wrapping
+                    label.setMaxWidth(1000); // Set max width for wrapping (you can adjust this value)
+
+                    // Apply styles to the label
+                    label.setStyle("-fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 5px;");
+
+                    // Set the label as the graphic of the ListCell
+                    setGraphic(label);
                 }
             }
         });
     }
+
+
 
     public void initializeResults(int score, int total, List<String> incorrectResults) {
         scoreLabel.setText("Score: " + score + " out of " + total);

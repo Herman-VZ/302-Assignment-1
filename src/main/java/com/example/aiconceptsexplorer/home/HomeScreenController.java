@@ -1,14 +1,12 @@
 package com.example.aiconceptsexplorer.home;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.Region;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.Parent;
-import javafx.fxml.FXMLLoader;
+import com.example.aiconceptsexplorer.learnscreen.SearchLessonController;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,6 +17,8 @@ import java.util.List;
 
 public class HomeScreenController {
 
+    @FXML
+    public ListView LessonList;
 
     @FXML
     private ListView<String> leaderboardList;
@@ -38,9 +38,17 @@ public class HomeScreenController {
         this.navigateToLesson = toLesson;
     }
 
+    private ObservableList<String> lessons;
+
     @FXML
     public void initialize() {
         refreshLeaderboard();
+        lessons = FXCollections.observableArrayList(
+                "Intro to AI",
+                "Machine Learning Basics",
+                "Deep Learning Concepts"
+        );
+        LessonList.setItems(lessons);
     }
 
     private void refreshLeaderboard() {
@@ -111,5 +119,12 @@ public class HomeScreenController {
             navigateToLogin.run();
         }
     }
+
+    public void Startlesson(ActionEvent actionEvent) {
+        if (navigateToLesson != null) {
+            navigateToLesson.run();
+        }
+    }
+
 
 }

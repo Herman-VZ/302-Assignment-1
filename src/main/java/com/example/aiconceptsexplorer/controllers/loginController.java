@@ -14,6 +14,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.function.Consumer;
 
+/**
+ * Controller for the login screen.
+ * Handles user credential validation and navigation
+ */
 public class loginController {
 
     private SqliteUserDAO newUserDAO;
@@ -35,15 +39,26 @@ public class loginController {
     @FXML
     public Label errorLabel;
 
+    /**
+     * Handles user login logic and navigation.
+     */
     public loginController() {
         newUserDAO = new SqliteUserDAO();
     }
 
+    /**
+     * Handles user registration and database insertion.
+     * @param toHome
+     * @param toSignup
+     */
     public void setNavigation(Consumer<String> toHome, Runnable toSignup) {
         this.navigateToSignup = toSignup;
         this.navigateToHome = toHome;
     }
 
+    /**
+     * Handles user login logic and navigation.
+     */
     @FXML
     public void onLogin() {
         String userEmail = email.getText();

@@ -16,6 +16,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller for the signup screen.
+ * Handles new user registration.
+ */
 public class signupController {
 
     public Label goodLabel;
@@ -24,6 +28,10 @@ public class signupController {
 
     private Runnable navigateToLogIn;
 
+    /**
+     * Sets the navigation action for redirecting to the login screen.
+     * @param toLogIn a Runnable representing the navigation logic to the login screen.
+     */
     public void setNavigation(Runnable toLogIn) {
         this.navigateToLogIn = toLogIn;
     }
@@ -43,10 +51,19 @@ public class signupController {
     @FXML
     public Label errorLabel;
 
+    /**
+     * Sets up the controller to interact with the user database for signup operations
+     */
     public signupController() {
         newUserDAO = new SqliteUserDAO();
     }
 
+    /**
+     * Handles signup process when user submits the form.
+     * Validates the email and password, checks email for uniqueness,
+     * and registers the user if all checks pass.
+     * Displays appropriate success or error messages.
+     */
     @FXML
     public void onSignUp() {
         errorLabel.setText(""); // Clear previous errors
@@ -76,6 +93,10 @@ public class signupController {
         }
     }
 
+    /**
+     * Handles the action event for redirecting to the login screen.
+     * @param actionEvent event triggered by the login button.
+     */
     @FXML
     public void onLoginRedirect(ActionEvent actionEvent) {
         if (navigateToLogIn != null) {

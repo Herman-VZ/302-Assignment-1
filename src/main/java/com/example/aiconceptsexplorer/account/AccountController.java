@@ -15,6 +15,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Controller class for the Account view
+ * Handles user profile display, navigation, and trophy popups.
+ */
 public class AccountController {
     @FXML private Text profileNameText;
     @FXML private Text latestLessonText;
@@ -27,12 +31,19 @@ public class AccountController {
 
     private String currentUserEmail;
 
-    // Method to set the email of the signed-in user
+    /**
+     * Method sets the email of the signed-in user and loads their data.
+     * @param email the users email address
+     */
     public void setCurrentUserEmail(String email) {
         this.currentUserEmail = email;
         loadUserDataForEmail(currentUserEmail);  // Load data when email is set
     }
 
+    /**
+     * Initialises the controller after its root element has been processed.
+     * Loads user data if the email is already set.
+     */
     @FXML
     public void initialize() {
         if (currentUserEmail != null) {
@@ -73,14 +84,29 @@ public class AccountController {
         }
     }
 
+    /**
+     * Handles the display of first trophy popup.
+     * Triggered by corresponding FXML button.
+     * @param actionEvent
+     */
     public void TrophyDisplay1(ActionEvent actionEvent) {
         handleTrophyPopup(actionEvent);
     }
 
+    /**
+     * Handles the display of second trophy popup.
+     * Triggered by corresponding FXML button.
+     * @param actionEvent
+     */
     public void TrophyDisplay2(ActionEvent actionEvent) {
         handleTrophyPopup(actionEvent);
     }
 
+    /**
+     * Handles the display of third trophy popup.
+     * Triggered by corresponding FXML button.
+     * @param actionEvent
+     */
     public void TrophyDisplay3(ActionEvent actionEvent) {
         handleTrophyPopup(actionEvent);
     }
@@ -104,12 +130,23 @@ public class AccountController {
         }
     }
 
+    /**
+     * Sets navigation actions for leaderboard, learn and logout buttons
+     * @param toLeaderboard action to navigate to leaderboard
+     * @param toLearn action to navigate to learn
+     * @param toLogout action to log out the user
+     */
     public void setNavigation(Runnable toLeaderboard, Runnable toLearn, Runnable toLogout) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToLearn = toLearn;
         this.navigateToLogOut = toLogout;
     }
 
+    /**
+     * Handles leaderboard tab click event.
+     * Triggers navigation to the leaderboard if set.
+     * @param actionEvent
+     */
     @FXML
     public void onLeaderboardTabClick(ActionEvent actionEvent) {
         if (navigateToLeaderboard != null) {
@@ -117,6 +154,11 @@ public class AccountController {
         }
     }
 
+    /**
+     * Handles logout button click event.
+     * Triggers logout action if set.
+     * @param actionEvent
+     */
     @FXML
     public void onLogoutClick(ActionEvent actionEvent) {
         if (navigateToLogOut != null) {
@@ -124,6 +166,11 @@ public class AccountController {
         }
     }
 
+    /**
+     * Handles learn tab click event.
+     * Triggers navigation to the learn screen if set.
+     * @param actionEvent
+     */
     @FXML
     public void onLearnTabClick(ActionEvent actionEvent) {
         if (navigateToLearn != null) {

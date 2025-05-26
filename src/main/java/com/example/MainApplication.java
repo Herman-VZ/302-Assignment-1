@@ -21,6 +21,12 @@ import com.example.aiconceptsexplorer.home.HomeScreenController;
 import com.example.aiconceptsexplorer.quizzes.QuizPageController;
 import com.example.aiconceptsexplorer.leaderboardscreen.UserDAO;
 
+/**
+ * Main entry point for the AI Concepts Explorer application.
+ * This class manages the primary stage and navigation between all major screens,
+ * incl. signin, login, account, leaderboard, learn, glossary, search quiz & lesson,
+ * lesson, home, quiz, and results views.
+ */
 public class MainApplication extends Application {
 
     private static Stage primaryStage;
@@ -36,6 +42,12 @@ public class MainApplication extends Application {
         }
     }
 
+    /**
+     * Initialises the primary stage of the application.
+     * Loads the login view as the initial screen and displays the main window.
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;

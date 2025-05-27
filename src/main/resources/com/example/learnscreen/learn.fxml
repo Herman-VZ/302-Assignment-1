@@ -102,34 +102,36 @@
 
             <Region />
 
-            <HBox alignment="CENTER" prefHeight="285.0" prefWidth="720.0" spacing="100.0">
+            <HBox alignment="CENTER" prefHeight="285.0" prefWidth="720.0" spacing="50.0">
 
-                <VBox fx:id="lessonOptions" prefHeight="70.0" prefWidth="130.0" spacing="10" visible="false">
+                <VBox fx:id="lessonOptions" prefHeight="163.0" prefWidth="174.0" spacing="10" visible="false">
                     <HBox alignment="CENTER_LEFT" spacing="10">
                         <Polygon fx:id="continueLessonDiamond" fill="#E6E6E6" points="5,0,10,5,5,10,0,5" />
-                        <Button onAction="#onContinueLessonButtonClick" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #0078d7; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Continue lessons" textFill="WHITE" />
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onContinueLessonButtonClick" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #0078d7; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Continue lessons" textFill="WHITE" />
                     </HBox>
                     <HBox alignment="CENTER_LEFT" spacing="10">
                         <Polygon fx:id="searchLessonDiamond" fill="#A6A6A6" points="5,0,10,5,5,10,0,5" />
-                        <Button onAction="#onSearchLessonButtonClick" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #0078d7; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Search for new lessons" textFill="WHITE" />
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onSearchLessonButtonClick" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #0078d7; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Search for new lessons" textFill="WHITE" />
                     </HBox>
                 </VBox>
+            <Pane prefHeight="163.0" prefWidth="81.0" />
 
                 <VBox fx:id="quizOptions" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="130.0" spacing="10" visible="false">
                     <HBox alignment="CENTER_LEFT" prefWidth="111.0" spacing="10">
                         <Polygon fx:id="continueQuizDiamond" fill="#E6E6E6" points="5,0,10,5,5,10,0,5" />
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onContinueQuizButtonClick" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #0078d7; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Continue quiz" textFill="WHITE" />
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onContinueQuizButtonClick" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: #0078d7; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Continue quiz" textFill="WHITE" />
                     </HBox>
                     <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="91.0" spacing="10">
                         <Polygon fx:id="searchQuizDiamond" fill="#A6A6A6" points="5,0,10,5,5,10,0,5" />
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onSearchQuizButtonClick" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #0078d7; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Search for new quizzes" textFill="WHITE" />
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onSearchQuizButtonClick" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #0078d7; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Search for new quizzes" textFill="WHITE" />
                     </HBox>
                 </VBox>
+            <Pane prefHeight="163.0" prefWidth="11.0" />
 
                 <VBox fx:id="glossaryOptions" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="130.0" spacing="10" visible="false">
                     <HBox alignment="CENTER_LEFT" spacing="10">
                         <Polygon fx:id="continueGlossaryDiamond" fill="#E6E6E6" points="5,0,10,5,5,10,0,5" />
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onContinueGlossaryButtonClick" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #0078d7; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Continue glossary" textFill="WHITE" />
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onContinueGlossaryButtonClick" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: #0078d7; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Continue glossary" textFill="WHITE" />
                     </HBox>
                 </VBox>
 

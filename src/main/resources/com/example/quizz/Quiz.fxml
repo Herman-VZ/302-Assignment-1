@@ -4,20 +4,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: #768381;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.quizzes.QuizPageController">
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.quizzes.QuizPageController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
     <!-- Banner -->
-    <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0" style="-fx-background-color: #619BA0; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+    <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0" style="-fx-background-color: #243a5e; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5);">
         <Region prefHeight="47.0" prefWidth="44.0" />
-        <Button onAction="#onLearnTabClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Learn" />
+        <Button onAction="#onLearnTabClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="LEARN">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
         <Region prefHeight="47.0" prefWidth="115.0" />
-        <Button onAction="#onLeaderboardTabClick" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Leaderboard" />
+        <Button onAction="#onLeaderboardTabClick" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="LEADERBOARD">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
         <Region prefHeight="47.0" prefWidth="19.0" HBox.hgrow="SOMETIMES" />
-        <Button onAction="#onAccountTabClick" style="-fx-background-color: #619BA0; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 40px; -fx-min-height: 40px; -fx-max-width: 40px; -fx-max-height: 40px; -fx-alignment: center;">
+        <Button onAction="#onAccountTabClick" style="-fx-background-color: white; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 40px; -fx-min-height: 40px; -fx-max-width: 40px; -fx-max-height: 40px; -fx-alignment: center;">
             <graphic>
                 <ImageView fitHeight="45.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -26,7 +33,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="48.0" style="-fx-background-color: #619BA0; -fx-text-fill: white;">
+        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="48.0" style="-fx-background-color: white; -fx-text-fill: white;">
             <graphic>
                 <ImageView fitHeight="39.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -35,7 +42,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button mnemonicParsing="false" style="-fx-background-color: #619BA0;">
+        <Button mnemonicParsing="false" style="-fx-background-color: white;">
             <graphic>
                 <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -47,25 +54,20 @@
     </HBox>
 
     <!-- Main Quiz Area -->
-    <VBox alignment="TOP_CENTER" spacing="20.0" prefWidth="1100.0" prefHeight="480.0"
-          style="-fx-background-color: #619BA0; -fx-background-radius: 5; -fx-padding: 20px;">
+    <VBox alignment="TOP_CENTER" prefHeight="480.0" prefWidth="1100.0" spacing="20.0" style="-fx-background-color: linear-gradient(to bottom,  #dde3e6 50%, #dde3e6); -fx-background-radius: 5; -fx-padding: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5);">
 
-        <Label fx:id="quizTitleLabel" text="Quiz Title"
-               style="-fx-font-size: 28px; -fx-text-fill: white;"/>
+        <Label fx:id="quizTitleLabel" style="-fx-font-size: 28px; -fx-text-fill: black;" text="Quiz Title" />
 
         <!-- ScrollPane to make the questions scrollable -->
-        <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS"
-                    style="-fx-background-color: #4D6F6C; -fx-border: none;">
+        <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: #4D6F6C; -fx-border: none;" VBox.vgrow="ALWAYS">
             <content>
-                <VBox fx:id="questionsBox" spacing="20.0" prefWidth="600.0" VBox.vgrow="ALWAYS"
-                      style="-fx-background-color: #4D6F6C;"/>
+                <VBox fx:id="questionsBox" prefWidth="600.0" spacing="20.0" style="-fx-background-color: #243a5e;" VBox.vgrow="ALWAYS" />
             </content>
         </ScrollPane>
 
 
-        <HBox spacing="20.0" alignment="CENTER">
-            <Button fx:id="submitButton" text="Submit" onAction="#onSubmitClick" prefWidth="120.0"
-                    style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;"/>
+        <HBox alignment="CENTER" spacing="20.0">
+            <Button fx:id="submitButton" onAction="#onSubmitClick" prefWidth="120.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Submit" />
         </HBox>
     </VBox>
 </VBox>

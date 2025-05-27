@@ -16,6 +16,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller class for the leaderboard screen in the application.
+ * Handles the display of user scores and navigation between different screens.
+ */
 public class LeaderController {
 
     @FXML
@@ -25,11 +29,21 @@ public class LeaderController {
     private Runnable navigateToLearn;
     private Runnable navigateToHome;
 
+    /**
+     * Initialises the controller after its root element has been completely processed.
+     * Refreshes the leaderbaord data.
+     */
     @FXML
     public void initialize() {
         refreshLeaderboard();
     }
 
+    /**
+     * Sets the navigation actions for the controller.
+     * @param toAccount Runnable to navigate to the account screen
+     * @param toLearn Runnable to navigate to the learn screen
+     * @param toHome Runnable to navigate to the home screen
+     */
     public void setNavigation(Runnable toAccount, Runnable toLearn, Runnable toHome) {
         this.navigateToAccount = toAccount;
         this.navigateToLearn = toLearn;
@@ -69,6 +83,12 @@ public class LeaderController {
         return leaderboard;
     }
 
+    /**
+     * Handles the event when the first button is clicked.
+     * Navigated to the account screen if the action is set.
+     * @param actionEvent the action event triggered by the button click
+     * @throws IOException if navigation fails
+     */
     @FXML
     public void onFirstButtonClick(ActionEvent actionEvent) throws IOException {
         if (navigateToAccount != null) {
@@ -76,6 +96,12 @@ public class LeaderController {
         }
     }
 
+    /**
+     * Handles the event when the logout button is clicked
+     * Navigates to the home screen if the action is set.
+     * @param actionEvent the action event triggered by the button click
+     * @throws IOException if navigation fails
+     */
     @FXML
     public void onLogOutClick(ActionEvent actionEvent) throws IOException {
         if (navigateToHome != null) {
@@ -83,11 +109,22 @@ public class LeaderController {
         }
     }
 
+    /**
+     * Handles the event when the second button is clicked.
+     * Refreshes the leaderboard data.
+     * @param actionEvent the action event triggered by the button click
+     */
     @FXML
     public void onSecondButtonClick(ActionEvent actionEvent) {
         refreshLeaderboard();
     }
 
+    /**
+     * Handles the event when the third button is clicked
+     * Navigates to the learn screen if the action is set.
+     * @param actionEvent the action event triggered by the button click
+     * @throws IOException if navigation fails
+     */
     @FXML
     public void onThirdButtonClick(ActionEvent actionEvent) throws IOException {
         if (navigateToLearn != null) {

@@ -58,7 +58,7 @@
 
         <TextField fx:id="searchField" prefWidth="400.0" promptText="Search quizzes..." style="-fx-background-color: #243a5e; -fx-text-fill: white; -fx-prompt-text-fill: #cccccc; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-padding: 8px; -fx-border-color: #363946; -fx-border-radius: 2.5px; -fx-border-width: 1.5px;" />
 
-        <ListView fx:id="quizList" prefHeight="304.0" prefWidth="720.0" style="-fx-control-inner-background: #243a5e; -fx-background-color: #243a5e; -fx-text-fill: white; -fx-font-size: 24px; -fx-background-insets: 0; -fx-padding: 5px; -fx-selection-bar: #1E7779; -fx-selection-bar-non-focused: #1E7779; -fx-border-color: #363946; -fx-border-width: 1.5px; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+        <ListView fx:id="quizList" prefHeight="304.0" prefWidth="720.0" style="-fx-control-inner-background: #243a5e; -fx-background-color: #243a5e; -fx-text-fill: white; -fx-font-size: 24px; -fx-background-insets: 0; -fx-padding: 5px; -fx-selection-bar: #81b5de; -fx-selection-bar-non-focused: #81b5de; -fx-border-color: #363946; -fx-border-width: 1.5px; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
 
         <Button onAction="#onStartQuizClick" prefWidth="200.0" style="-fx-background-color: #243a5e; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 5px; -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Start Quiz" />
 

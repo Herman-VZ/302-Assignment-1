@@ -5,29 +5,29 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="1000.0" spacing="10" style="-fx-background-color: #619BA0; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.controllers.signupController">
+<VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="1000.0" spacing="10" style="-fx-background-color: linear-gradient(to bottom,  #dde3e6 50%, #dde3e6); -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.controllers.signupController">
    <children>
-      <Label alignment="CENTER" text="Sign Up" style="-fx-font-weight: bold;">
+      <Label alignment="CENTER" style="-fx-font-weight: bold;" text="Sign Up">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="name" promptText="Name">
+      <TextField fx:id="name" promptText="Name" style="-fx-border-color: #243a5e;">
          <VBox.margin>
             <Insets left="300.0" right="300.0" />
          </VBox.margin></TextField>
-      <TextField fx:id="email" promptText="Email">
+      <TextField fx:id="email" promptText="Email" style="-fx-border-color: #243a5e;">
          <VBox.margin>
             <Insets left="300.0" right="300.0" />
          </VBox.margin></TextField>
-      <PasswordField fx:id="password" promptText="Password">
+      <PasswordField fx:id="password" promptText="Password" style="-fx-border-color: #243a5e;">
          <VBox.margin>
             <Insets left="300.0" right="300.0" />
          </VBox.margin></PasswordField>
-      <Button mnemonicParsing="false" onAction="#onSignUp" text="Sign Up" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" />
+      <Button mnemonicParsing="false" onAction="#onSignUp" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Sign Up" />
       <Label fx:id="goodLabel" textFill="GREEN" />
       <Label fx:id="errorLabel" textFill="RED" />
-      <Label text="Already have an account?" style="-fx-font-weight: bold;"/>
-      <Button fx:id="loginButton" mnemonicParsing="false" onAction="#onLoginRedirect" text="Log In" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;"/>
+      <Label style="-fx-font-weight: bold; -fx-text-fill: #243a5e;" text="Already have an account?" />
+      <Button fx:id="loginButton" mnemonicParsing="false" onAction="#onLoginRedirect" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Log In" />
    </children>
 </VBox>

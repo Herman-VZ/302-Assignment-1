@@ -68,7 +68,7 @@
                 <Insets bottom="15" left="15" right="15" top="15" />
             </padding>
             <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Leaderboard" />
-            <ListView fx:id="leaderboardList" prefWidth="160" style="-fx-control-inner-background: #0078d7; -fx-background-color: #0078d7; -fx-text-fill: #363946; -fx-font-size: 14px; -fx-background-insets: 0; -fx-padding: 5px; -fx-selection-bar: #619BA0; -fx-selection-bar-non-focused: #619BA0; -fx-border-color: #363946; -fx-border-width: 2px; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+            <ListView fx:id="leaderboardList" prefWidth="160" style="-fx-control-inner-background: #0078d7; -fx-background-color: #0078d7; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-insets: 0; -fx-padding: 5px; -fx-selection-bar: #619BA0; -fx-selection-bar-non-focused: #619BA0; -fx-border-color: #363946; -fx-border-width: 2px; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
         </VBox>
     </left>
 

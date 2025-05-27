@@ -2,31 +2,27 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.aiconceptsexplorer.home.HomeScreenController"
-            prefWidth="1000.0" prefHeight="700.0">
+<BorderPane prefHeight="460.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.home.HomeScreenController">
 
     <!-- Top Navigation Bar -->
     <top>
-        <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0" style="-fx-background-color: #619BA0; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+        <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="743.0" spacing="10.0" style="-fx-background-color: #243a5e; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
             <Region prefHeight="47.0" prefWidth="44.0" />
-            <Button onAction="#onLearnTabClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Learn" />
+            <Button onAction="#onLearnTabClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Learn" />
             <Region prefHeight="47.0" prefWidth="115.0" />
-            <Button onAction="#onLeaderboardTabClick" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Leaderboard" />
+            <Button onAction="#onLeaderboardTabClick" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Leaderboard" />
             <Region prefHeight="47.0" prefWidth="19.0" HBox.hgrow="SOMETIMES" />
-            <Button onAction="#onAccountTabClick" style="-fx-background-color: #619BA0; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 40px; -fx-min-height: 40px; -fx-max-width: 40px; -fx-max-height: 40px; -fx-alignment: center;">
+            <Button onAction="#onAccountTabClick" style="-fx-background-color: white; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 40px; -fx-min-height: 40px; -fx-max-width: 40px; -fx-max-height: 40px; -fx-alignment: center;">
                 <graphic>
                     <ImageView fitHeight="45.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@../../../Images/Profile.png" />
                         </image></ImageView>
                 </graphic></Button>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="48.0" style="-fx-background-color: #619BA0; -fx-text-fill: white;">
+            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="48.0" style="-fx-background-color: white; -fx-text-fill: white;">
                 <graphic>
                     <ImageView fitHeight="39.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -35,7 +31,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="logoutButton" onAction="#onLogoutClick" mnemonicParsing="false" style="-fx-background-color: #619BA0;">
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#onLogoutClick" style="-fx-background-color: white;">
                 <graphic>
                     <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -49,51 +45,61 @@
 
     <!-- Center Lessons -->
     <center>
-        <VBox spacing="20.0" alignment="TOP_CENTER" style="-fx-background-color: linear-gradient(to bottom,  #619BA0, #4A8B8F 70%, #3A7B80); -fx-border-color: #363946; -fx-border-width: 2px; -fx-border-radius: 5px;" prefWidth="1100" prefHeight="600">
+        <VBox alignment="TOP_CENTER" prefHeight="600" prefWidth="1100" spacing="20.0" style="-fx-background-color: linear-gradient(to bottom,  #dde3e6 50%, #dde3e6); -fx-border-color: #363946; -fx-border-width: 2px; -fx-border-radius: 5px;">
             <padding>
-                <Insets top="20" bottom="20" left="20" right="20"/>
+                <Insets bottom="20" left="20" right="20" top="20" />
             </padding>
 
             <!-- Continue Last Lesson Section -->
-            <Label  text="Get started on your learning!" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
-            <Button onAction="#ContinueLesson" text="Start a Lesson!" prefWidth="200" style="-fx-font-size: 16px; -fx-background-color: #1E7779; -fx-text-fill: white; -fx-background-radius: 5;"/>
-            <Label text="Suggested Lessons:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Get started on your learning!" />
+            <Button onAction="#ContinueLesson" prefWidth="200" style="-fx-font-size: 16px; -fx-background-color: #0078d7; -fx-text-fill: white; -fx-background-radius: 5;" text="Start a Lesson!" />
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Suggested Lessons:" />
             <VBox spacing="10.0">
-                <ListView fx:id="LessonList" style="-fx-control-inner-background: #196365; -fx-background-color: #196365; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-insets: 0; -fx-padding: 5px; -fx-selection-bar: #1E7779; -fx-selection-bar-non-focused: #1E7779; -fx-border-color: #363946; -fx-border-width: 1.5px; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
-                <Button onAction="#Startlesson" text="Get started" prefWidth="200" style="-fx-font-size: 16px; -fx-background-color: #1E7779; -fx-text-fill: white; -fx-background-radius: 5;"/>
+                <ListView fx:id="LessonList" style="-fx-control-inner-background: #0078d7; -fx-background-color: #0078d7; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-insets: 0; -fx-padding: 5px; -fx-selection-bar: #1E7779; -fx-selection-bar-non-focused: #1E7779; -fx-border-color: #363946; -fx-border-width: 1.5px; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+                <Button onAction="#Startlesson" prefWidth="200" style="-fx-font-size: 16px; -fx-background-color: #0078d7; -fx-text-fill: white; -fx-background-radius: 5;" text="Get started" />
             </VBox>
         </VBox>
     </center>
 
     <!-- Left Leaderboard -->
     <left>
-        <VBox spacing="10.0" style="-fx-background-color: linear-gradient(to bottom,  #4A8B8F, #4A8B8F 70%, #1E7779); -fx-border-color: #363946; -fx-border-width: 2px; -fx-border-radius: 5px;" prefWidth="200" prefHeight="700">
+        <VBox prefHeight="700" prefWidth="200" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom,  #dde3e6 50%, #dde3e6); -fx-border-color: #363946; -fx-border-width: 2px; -fx-border-radius: 5px;">
             <padding>
-                <Insets top="15" bottom="15" left="15" right="15"/>
+                <Insets bottom="15" left="15" right="15" top="15" />
             </padding>
-            <Label text="Leaderboard" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
-            <ListView fx:id="leaderboardList" prefWidth="160" style="-fx-control-inner-background: #1E7779; -fx-background-color: #1E7779; -fx-text-fill: #363946; -fx-font-size: 14px; -fx-background-insets: 0; -fx-padding: 5px; -fx-selection-bar: #619BA0; -fx-selection-bar-non-focused: #619BA0; -fx-border-color: #363946; -fx-border-width: 2px; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Leaderboard" />
+            <ListView fx:id="leaderboardList" prefWidth="160" style="-fx-control-inner-background: #0078d7; -fx-background-color: #0078d7; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-insets: 0; -fx-padding: 5px; -fx-selection-bar: #619BA0; -fx-selection-bar-non-focused: #619BA0; -fx-border-color: #363946; -fx-border-width: 2px; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
         </VBox>
     </left>
 
     <!-- Right Weekly Goals -->
     <right>
-        <VBox spacing="10.0" style="-fx-background-color: linear-gradient(to bottom,  #4A8B8F, #4A8B8F 70%, #1E7779); -fx-border-color: #363946; -fx-border-width: 2px; -fx-border-radius: 5px;" prefWidth="250" prefHeight="700">
+        <VBox prefHeight="700" prefWidth="250" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom,  #dde3e6 50%, #dde3e6); -fx-border-color: #363946; -fx-border-width: 2px; -fx-border-radius: 5px;">
             <padding>
-                <Insets top="15" bottom="15" left="15" right="15"/>
+                <Insets bottom="15" left="15" right="15" top="15" />
             </padding>
-            <Label text="Weekly Goals:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Weekly Goals:" />
             <GridPane hgap="10" vgap="10">
-                <Label text="Status"/>
-                <Label text="Goal" GridPane.columnIndex="1"/>
-                <TextField GridPane.rowIndex="1"/>
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                <TextField GridPane.rowIndex="2"/>
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                <TextField GridPane.rowIndex="3"/>
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label text="Status" />
+                <Label text="Goal" GridPane.columnIndex="1" />
+                <TextField GridPane.rowIndex="1" />
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField GridPane.rowIndex="2" />
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField GridPane.rowIndex="3" />
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
             </GridPane>
-            <Button text="Add New Goal" prefWidth="150" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            <Button prefWidth="150" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-background-radius: 5;" text="Add New Goal" />
         </VBox>
     </right>
 </BorderPane>

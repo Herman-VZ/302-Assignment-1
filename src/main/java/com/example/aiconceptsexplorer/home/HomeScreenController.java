@@ -15,8 +15,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller for the Home Screen.
+ * Handles the display of lessons and leaderboard, and manages navigation between different sections of the app.
+ */
 public class HomeScreenController {
 
+    /**
+     * ListView for displaying available lessons.
+     */
     @FXML
     public ListView LessonList;
 
@@ -29,7 +36,14 @@ public class HomeScreenController {
     private Runnable navigateToLearn;
     private Runnable navigateToLesson;
 
-    // This method allows setting the navigation actions for the controller
+    /**
+     * Method sets the navigation actions for the controller.
+     * @param toLeaderboard runnable to navigate to the leaderboard view
+     * @param toAccount runnable to navigate to the account view
+     * @param toLogin runnable to navigate to the login view
+     * @param toLearn runnable to navigate to the learn view
+     * @param toLesson runnable to navigate to the lesson view
+     */
     public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toLogin, Runnable toLearn, Runnable toLesson) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToAccount = toAccount;
@@ -40,6 +54,9 @@ public class HomeScreenController {
 
     private ObservableList<String> lessons;
 
+    /**
+     * Initialises the home screen, populating the lessons and leaderboard.
+     */
     @FXML
     public void initialize() {
         refreshLeaderboard();
@@ -85,7 +102,10 @@ public class HomeScreenController {
         return leaderboard;
     }
 
-    // Navigation methods for buttons
+    /**
+     * Handles navigation to the leaderboard tab when the button is clicked.
+     * @param actionEvent the action event triggered by clicking the leaderboard tab.
+     */
     @FXML
     public void onLeaderboardTabClick(ActionEvent actionEvent) {
         if (navigateToLeaderboard != null) {
@@ -93,6 +113,10 @@ public class HomeScreenController {
         }
     }
 
+    /**
+     * Handles navigation to the account tab.
+     * @param actionEvent the action event triggered by clicking the account tab.
+     */
     @FXML
     public void onAccountTabClick(ActionEvent actionEvent) {
         if (navigateToAccount != null) {
@@ -100,6 +124,10 @@ public class HomeScreenController {
         }
     }
 
+    /**
+     * Handles the action when a lesson is selected from the list.
+     * @param actionEvent the action event triggered by selecting a lesson.
+     */
     @FXML
     public void ContinueLesson(ActionEvent actionEvent) {
         if (navigateToLesson != null) {
@@ -107,12 +135,20 @@ public class HomeScreenController {
         }
     }
 
+    /**
+     * Handles navigation to the learn tab.
+     * @param actionEvent the action event triggered by clicking the learn tab.
+     */
     public void onLearnTabClick(ActionEvent actionEvent) {
         if (navigateToLearn != null) {
             navigateToLearn.run();
         }
     }
 
+    /**
+     * Handles user logout and navigation to the login screen.
+     * @param actionEvent the action event triggered by clicking the logout button.
+     */
     @FXML
     public void onLogoutClick(ActionEvent actionEvent) {
         if (navigateToLogin != null) {
@@ -120,6 +156,10 @@ public class HomeScreenController {
         }
     }
 
+    /**
+     * Handles starting a lesson.
+     * @param actionEvent the action event triggered by clicking the start lesson button.
+     */
     public void Startlesson(ActionEvent actionEvent) {
         if (navigateToLesson != null) {
             navigateToLesson.run();

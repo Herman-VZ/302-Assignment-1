@@ -7,26 +7,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: #768381;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.learnscreen.LearnController">
+<VBox alignment="TOP_CENTER" maxWidth="760.0" prefHeight="460.0" prefWidth="760.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.learnscreen.LearnController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
     <!-- Raised grey banner -->
-    <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="1100" spacing="20.0" style="-fx-background-color: #619BA0; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+    <HBox alignment="CENTER_LEFT" prefHeight="80" prefWidth="740.0" spacing="10.0" style="-fx-background-color: #243a5e; -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5);">
       <Region prefHeight="47.0" prefWidth="44.0" />
-        <Button onAction="#onFirstButtonClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Learn" />
+        <Button onAction="#onFirstButtonClick" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Learn" />
       <Region prefHeight="47.0" prefWidth="115.0" />
-        <Button onAction="#onLeaderboardTabClick" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Leaderboard" />
-        <Region prefHeight="47.0" prefWidth="19.0" HBox.hgrow="SOMETIMES" />
-        <Button onAction="#onAccountTabClick" style="-fx-background-color: #619BA0; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 40px; -fx-min-height: 40px; -fx-max-width: 40px; -fx-max-height: 40px; -fx-alignment: center;">
+        <Button onAction="#onLeaderboardTabClick" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 2.5; -fx-border-width: 1.5;" text="Leaderboard" />
+        <Region prefHeight="54.0" prefWidth="146.0" HBox.hgrow="SOMETIMES" />
+        <Button onAction="#onAccountTabClick" style="-fx-background-color: white; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 40px; -fx-min-height: 40px; -fx-max-width: 40px; -fx-max-height: 40px; -fx-alignment: center;">
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Images/Profile.png" />
                </image></ImageView>
          </graphic></Button>
-      <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="48.0" style="-fx-background-color: #619BA0; -fx-text-fill: white;">
+      <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="48.0" style="-fx-background-color: white; -fx-text-fill: white;">
          <graphic>
             <ImageView fitHeight="39.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -35,7 +35,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="logoutButton" onAction="#onlogoutButtonClick" mnemonicParsing="false" style="-fx-background-color: #619BA0;">
+      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#onlogoutButtonClick" style="-fx-background-color: white;">
          <graphic>
             <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -46,15 +46,15 @@
       </Button>
     </HBox>
 
-    <HBox alignment="TOP_CENTER" prefHeight="600" prefWidth="1100" spacing="20.0" style="-fx-background-color: linear-gradient(to bottom,  #619BA0, #4A8B8F 70%, #3A7B80); -fx-background-radius: 5; -fx-padding: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+    <HBox alignment="TOP_CENTER" prefHeight="333.0" prefWidth="861.0" spacing="20.0" style="-fx-background-color: linear-gradient(to bottom,  #dde3e6 50%, #dde3e6); -fx-background-radius: 5; -fx-padding: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 5, 5);">
 
         <VBox alignment="TOP_CENTER" prefHeight="560" prefWidth="1100">
             <!-- Top space: 75% of height -->
             <Region prefHeight="140" />
 
             <!-- Buttons row -->
-            <HBox alignment="CENTER" spacing="250">
-                <Button onAction="#onLessonButtonClick" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 100; -fx-border-width: 1.5;">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="934.0" spacing="140.0">
+                <Button onAction="#onLessonButtonClick" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 100; -fx-border-width: 1.5;">
                <graphic>
                   <ImageView fx:id="myImageView" fitHeight="109.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -63,7 +63,7 @@
                   </ImageView>
                </graphic></Button>
 
-                <Button onAction="#onQuizButtonClick" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 100; -fx-border-width: 1.5;">
+                <Button onAction="#onQuizButtonClick" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 100; -fx-border-width: 1.5;">
                <graphic>
                   <ImageView fitHeight="73.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -72,7 +72,7 @@
                   </ImageView>
                </graphic></Button>
 
-                <Button onAction="#onGlossaryButtonClick" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 100; -fx-border-width: 1.5;">
+                <Button onAction="#onGlossaryButtonClick" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-background-radius: 50%; -fx-min-width: 100px; -fx-min-height: 100px; -fx-max-width: 100px; -fx-max-height: 100px; -fx-alignment: center; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 100; -fx-border-width: 1.5;">
                <graphic>
                   <ImageView fitHeight="77.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -84,7 +84,7 @@
 
             <Region prefHeight="150" />
             <!-- Line below the buttons -->
-            <Rectangle arcHeight="10" arcWidth="10" fill="white" height="3" width="1000">
+            <Rectangle arcHeight="10" arcWidth="10" fill="#0078d7" height="6.0" width="628.0">
                 <effect>
                     <DropShadow color="#ffffff99" radius="30" spread="0.2" />
                 </effect>
@@ -92,7 +92,7 @@
 
             <Region prefHeight="175.0" prefWidth="1000.0" />
 
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="1000.0" spacing="250">
+            <HBox alignment="CENTER" prefHeight="68.0" prefWidth="636.0" spacing="250">
 
                 <VBox fx:id="lessonOptions" spacing="10" visible="false">
                     <HBox alignment="CENTER_LEFT" spacing="10">
@@ -126,11 +126,11 @@
             </HBox>
 
             <!-- Bottom space: 25% of height -->
-            <Region prefHeight="305.0" prefWidth="1000.0" />
+            <Region prefHeight="57.0" prefWidth="599.0" />
 
             <!-- Add Confirm Button Here -->
             <HBox alignment="CENTER" spacing="10" style="-fx-padding: 20 0 0 0;">
-                <Button fx:id="confirmButton" onAction="#onConfirmButtonClick" prefHeight="40" prefWidth="200" style="-fx-background-color: #1E7779; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 5; -fx-border-width: 1.5;" text="Confirm">
+                <Button fx:id="confirmButton" onAction="#onConfirmButtonClick" prefHeight="40" prefWidth="200" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 4); -fx-border-color: #363946; -fx-border-radius: 5; -fx-border-width: 1.5;" text="Confirm">
                     <padding>
                         <Insets bottom="5" left="10" right="10" top="5" />
                     </padding>

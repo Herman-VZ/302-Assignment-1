@@ -4,9 +4,16 @@ import javafx.scene.image.Image;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Provides static lesson data for the AI Concepts Explorer app
+ * This class contains a list of lesson sections, each with a title, text, and optional image.
+ */
 public class LessonData {
 
-    // Static method to return lesson data
+    /**
+     * Returns a list of lesson selections containing information about AI concepts.
+     * @return a list of {@link LessonSection} objects, each representing the lesson content.
+     */
     public static List<LessonSection> getLessonSections() {
         List<LessonSection> sections = new ArrayList<>();
 
@@ -57,26 +64,46 @@ public class LessonData {
         return sections;
     }
 
-    // Inner class to represent each lesson section
+    /**
+     * Represents a single section of a lesson.
+     */
     public static class LessonSection {
         String title;
         String text;
         Image image;
 
+        /**
+         * Constructs a new LessonSection with the specified title, text, and image (optional).
+         * @param title the title of the lesson section
+         * @param text the text content of the lesson section
+         * @param image the image associated with the lesson section, can be null if no image is provided
+         */
         public LessonSection(String title, String text, Image image) {
             this.title = title;
             this.text = text;
             this.image = image;
         }
 
+        /**
+         * Gets the title of the lesson section.
+         * @return the title of the lesson section
+         */
         public String getTitle() {
             return title;
         }
 
+        /**
+         * Gets the text content of the lesson section.
+         * @return the text content of the lesson section
+         */
         public String getText() {
             return text;
         }
 
+        /**
+         * Gets the image associated with the lesson section.
+         * @return the image of the lesson section, or null if no image is provided
+         */
         public Image getImage() {
             return image;
         }

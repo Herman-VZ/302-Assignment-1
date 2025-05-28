@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Controller class for managing the lesson view.
+ * Handles navigation between lesson sections and tab navigation.
+ */
 public class lessoncontroller implements Initializable {
 
     @FXML
@@ -34,7 +38,13 @@ public class lessoncontroller implements Initializable {
     private Runnable navigateToHome;
     private Runnable navigateToLearn;
 
-    // This method allows setting the navigation actions for the controller
+    /**
+     * Sets the navigation actions for the controller.
+     * @param toLeaderboard runnable action to navigate to the leaderboard view
+     * @param toAccount runnable action to navigate to the account view
+     * @param toLearn runnable action to navigate to the learn view
+     * @param toHome runnable action to navigate to the home view
+     */
     public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toLearn, Runnable toHome) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToAccount = toAccount;
@@ -42,6 +52,11 @@ public class lessoncontroller implements Initializable {
         this.navigateToLearn = toLearn;
     }
 
+    /**
+     * Initislaises the controller after its root element has been completely processed.
+     * @param location the location used to resolve relative paths for the root object, or null if unknown.
+     * @param resources the resources used to localise the root object, or null if not localised.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         buildSections();
@@ -81,22 +96,37 @@ public class lessoncontroller implements Initializable {
         lessonScroll.setVvalue(0);
     }
 
-    // Navigation methods
+    /**
+     * Handles the event when the leaderboard tab is clicked
+     * @param actionEvent the action event
+     */
     @FXML
     public void onLeaderboardTabClick(ActionEvent actionEvent) {
         if (navigateToLeaderboard != null) navigateToLeaderboard.run();
     }
 
+    /**
+     * Handles the event when the confirm button is clicked
+     * @param actionevent the action event
+     */
     @FXML
     public void onLogoutButtonClick(ActionEvent actionevent) {
         if (navigateToHome != null) navigateToHome.run();
     }
 
+    /**
+     * Handles the event when the account tab is clicked
+     * @param actionEvent the action event
+     */
     @FXML
     public void onAccountTabClick(ActionEvent actionEvent) {
         if (navigateToAccount != null) navigateToAccount.run();
     }
 
+    /**
+     * Handles the event when the first button is clicked (navigates to learn view)
+     * @param actionEvent the action event
+     */
     @FXML
     public void onFirstButtonClick(ActionEvent actionEvent) {
         if (navigateToLearn != null) navigateToLearn.run();

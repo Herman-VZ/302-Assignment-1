@@ -11,6 +11,10 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+/**
+ * Controller for the results view in the AI Concepts Explorer quiz application.
+ * Displays the users quiz score, incorrect answers, and provides AI generated explanations for mistakes.
+ */
 public class ResultsController {
 
     @FXML
@@ -26,6 +30,9 @@ public class ResultsController {
 
     private List<String> incorrectResults;
 
+    /**
+     * Initialises the ListView cell factory for displaying results with custom styling and wrapping.
+     */
     public void initialize() {
         resultsList.setCellFactory(lv -> new ListCell<String>() {
             @Override
@@ -51,17 +58,29 @@ public class ResultsController {
     }
 
 
-
+    /**
+     * Initialises the results view with the users score and list of incorrect answers.
+     * @param score the user's score
+     * @param total the total number of questions in the quiz
+     * @param incorrectResults a list of incorrect results to display
+     */
     public void initializeResults(int score, int total, List<String> incorrectResults) {
         scoreLabel.setText("Score: " + score + " out of " + total);
         this.incorrectResults = incorrectResults;
         resultsList.getItems().addAll(incorrectResults);
     }
 
+    /**
+     * Sets the navigation action to return to Learn view
+     * @param navigateBackToLearn runnable to execute when navigating back.
+     */
     public void setNavigation(Runnable navigateBackToLearn) {
         this.navigateBackToLearn = navigateBackToLearn;
     }
 
+    /**
+     * Handles the close action, navigating back to the Learn view if set.
+     */
     @FXML
     private void handleClose() {
         if (navigateBackToLearn != null) {
@@ -69,6 +88,10 @@ public class ResultsController {
         }
     }
 
+    /**
+     * Handles the explain button click, requesting AI generated explanations for incorrect answers.
+     * Disables the button while explanations are being fetched
+     */
     @FXML
     private void onExplainClick() {
         explainButton.setDisable(true);

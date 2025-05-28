@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
+/**
+ * Controller for the quiz page
+ * Handles quiz question display, answer selection, scoring, and navigation.
+ */
 public class QuizPageController {
 
     @FXML private VBox questionsBox;
@@ -26,14 +30,26 @@ public class QuizPageController {
     private UserDAO userDAO;
 
 
+    /**
+     * Sets the current users email
+     * @param email the users email address.
+     */
     public void setCurrentUserEmail(String email) {
         this.currentUserEmail = email;
     }
 
+    /**
+     * Sets the UserDAO for database operations.
+     * @param userDAO the UserDAO instance
+     */
     public void setUserDAO(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
 
+    /**
+     * Initialises the quiz page by creating question and answer options.
+     * Called automatically by JavaFX after FXML loading.
+     */
     @FXML
     public void initialize() {
         String[][] questions = {
@@ -117,11 +133,24 @@ public class QuizPageController {
     }
 
 
+    /**
+     * Data class representing the results of a quiz attempt.
+     */
     public static class ResultsData {
+        /** The users score */
         public final int score;
+        /** The total number of questions */
         public final int total;
+        /** List of incorrect results for feedback */
         public final List<String> incorrectResults;
 
+        /**
+         * Constructs a ResultsData object.
+         *
+         * @param score the users score
+         * @param total the total number of questions
+         * @param incorrectResults list of incorrect results for feedback
+         */
         public ResultsData(int score, int total, List<String> incorrectResults) {
             this.score = score;
             this.total = total;
@@ -129,6 +158,14 @@ public class QuizPageController {
         }
     }
 
+    /**
+     * Sets the navigation actions for the quiz page.
+     *
+     * @param toLeaderboard runnable for navigating to the leaderboard view
+     * @param toAccount runnable for navigating to the account view
+     * @param toLearn runnable for navigating to the learn view
+     * @param ToResults runnable for navigating to the results view with quiz results
+     */
     public void setNavigation(Runnable toLeaderboard, Runnable toAccount, Runnable toLearn, Consumer<ResultsData> ToResults) {
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToAccount = toAccount;
@@ -137,16 +174,25 @@ public class QuizPageController {
     }
 
 
+    /**
+     * Handles the account tab click event, navigating to the account view.
+     */
     @FXML
     public void onAccountTabClick() {
         if (navigateToAccount != null) navigateToAccount.run();
     }
 
+    /**
+     * Handles the leaderboard tab click event, navigating to the leaderboard view.
+     */
     @FXML
     public void onLeaderboardTabClick() {
         if (navigateToLeaderboard != null) navigateToLeaderboard.run();
     }
 
+    /**
+     * Handles the learn tab click event, navigating to the learn view.
+     */
     @FXML
     public void onLearnTabClick() {
         if (navigateToLearn != null) navigateToLearn.run();

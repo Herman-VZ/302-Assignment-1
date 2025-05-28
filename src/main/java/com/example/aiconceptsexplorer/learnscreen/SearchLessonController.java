@@ -12,7 +12,10 @@ import javafx.scene.control.TextField;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+/**
+ * Controller for the Search Lesson Screen.
+ * Handles lesson searching, filtering and navigation actions.
+ */
 public class SearchLessonController {
 
     private Runnable navigateToAccount;
@@ -26,14 +29,25 @@ public class SearchLessonController {
     private String currentUserEmail;
     private UserDAO userDAO;
 
+    /**
+     * Sets the current users email.
+     * @param email the users email address.
+     */
     public void setCurrentUserEmail(String email) {
         this.currentUserEmail = email;
     }
 
+    /**
+     * Sets the UserDAO for user data acess.
+     * @param userDAO the UserDAO imp[lementation.
+     */
     public void setUserDAO(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
 
+    /**
+     * Indicates if a lesson has been started.
+     */
     public static boolean lesson_started = false;
 
     @FXML
@@ -42,6 +56,9 @@ public class SearchLessonController {
     private ObservableList<String> lessons;
 
 
+    /**
+     * Initialises the controller, sets up the lesson list and search filter.
+     */
     public void initialize() {
         lessons = FXCollections.observableArrayList(
                 "Intro to AI",
@@ -68,6 +85,13 @@ public class SearchLessonController {
         }
     }
 
+    /**
+     * Sets the navigation runnables for different tabs/screens.
+     * @param toAccount runnable for Account navigation
+     * @param toLeaderboard runnable for Leaderboard navigation
+     * @param toLearn runnable for Learn navigation
+     * @param toLesson runnable for Lesson navigation
+     */
     public void setNavigation(Runnable toAccount, Runnable toLeaderboard, Runnable toLearn, Runnable toLesson) {
         this.navigateToAccount = toAccount;
         this.navigateToLeaderboard = toLeaderboard;
@@ -86,6 +110,10 @@ public class SearchLessonController {
 
     }
 
+    /**
+     * Handles the action when the Start Lesson tab is clicked.
+     * @param actionEvent the action event triggered by the tab click
+     */
     @FXML
     public void onAccountTabClick(ActionEvent actionEvent) {
         if (navigateToAccount != null) {
@@ -93,6 +121,10 @@ public class SearchLessonController {
         }
     }
 
+    /**
+     * Handles the action when the leaderboard tab is clicked.
+     * @param actionEvent the action event triggered by the tab click
+     */
     @FXML
     public void onLeaderboardTabClick(ActionEvent actionEvent) {
         if (navigateToLeaderboard != null) {
@@ -100,6 +132,10 @@ public class SearchLessonController {
         }
     }
 
+    /**
+     * Handles the action when the Learn tab is clicked.
+     * @param actionEvent the action event triggered by the tab click
+     */
     @FXML
     public void onLearnTabClick(ActionEvent actionEvent) {
         if (navigateToLearn != null) {

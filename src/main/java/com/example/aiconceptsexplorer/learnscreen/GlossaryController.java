@@ -12,6 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Controller for the Glossary screen in the application.
+ * Handles glossary search, selection and navigation between screens.
+ */
 public class GlossaryController {
 
     private Runnable navigateToAccount;
@@ -31,6 +35,9 @@ public class GlossaryController {
     private final ObservableList<String> glossaryItems = FXCollections.observableArrayList();
 
 
+    /**
+     * Initialises the controller, populates the glossary, and sets up listeners for search and selection.
+     */
     @FXML
     public void initialize() {
         populateGlossary();
@@ -75,12 +82,23 @@ public class GlossaryController {
         glossaryData.put("Inheritance", "One class can inherit fields and methods from another.");
     }
 
+    /**
+     * Sets the navigation runnables for switching between screens.
+     * @param toAccount runnable to navigate to the account screen
+     * @param toLeaderboard runnable to navigate to the leaderboard screen
+     * @param toLearn runnable to navigate to the learn screen
+     */
     public void setNavigation(Runnable toAccount, Runnable toLeaderboard, Runnable toLearn) {
         this.navigateToAccount = toAccount;
         this.navigateToLeaderboard = toLeaderboard;
         this.navigateToLearn = toLearn;
     }
 
+    /**
+     * Handles the action when the Account tab is clicked.
+     * Navigates to the account screen if navigation is set.
+     * @param actionEvent the action event triggered by the tab click
+     */
     @FXML
     public void onAccountTabClick(ActionEvent actionEvent) {
         if (navigateToAccount != null) {
@@ -88,6 +106,11 @@ public class GlossaryController {
         }
     }
 
+    /**
+     * Handles the action when the Leaderboard tab is clicked.
+     * Navigates to the leaderboard screen if navigation is set.
+     * @param actionEvent the action event triggered by the tab click
+     */
     @FXML
     public void onLeaderboardTabClick(ActionEvent actionEvent) {
         if (navigateToLeaderboard != null) {
@@ -95,6 +118,11 @@ public class GlossaryController {
         }
     }
 
+    /**
+     * Handles the action when the Learn tab is clicked.
+     * Navigates to the learn screen if navigation is set.
+     * @param actionEvent the action event triggered by the tab click
+     */
     @FXML
     public void onLearnTabClick(ActionEvent actionEvent) {
         if (navigateToLearn != null) {

@@ -5,8 +5,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="1000.0" spacing="10" style="-fx-background-color: linear-gradient(to bottom,  #dde3e6 50%, #dde3e6); -fx-padding: 10px; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aiconceptsexplorer.controllers.signupController">
    <children>
+      <ImageView fitHeight="230.0" fitWidth="438.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/Logo.png" />
+         </image>
+      </ImageView>
       <Label alignment="CENTER" style="-fx-font-weight: bold;" text="Sign Up">
          <font>
             <Font size="20.0" />

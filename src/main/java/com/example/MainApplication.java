@@ -24,7 +24,7 @@ import com.example.aiconceptsexplorer.leaderboardscreen.UserDAO;
 /**
  * Main entry point for the AI Concepts Explorer application.
  * This class manages the primary stage and navigation between all major screens,
- * incl. signin, login, account, leaderboard, learn, glossary, search quiz & lesson,
+ * incl. signin, login, account, leaderboard, learn, glossary, search quiz and lesson,
  * lesson, home, quiz, and results views.
  */
 public class MainApplication extends Application {

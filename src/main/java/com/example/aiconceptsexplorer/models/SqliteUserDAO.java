@@ -2,9 +2,16 @@ package com.example.aiconceptsexplorer.models;
 
 import java.sql.*;
 
+/**
+ * Data Access Object (DAO) implemetation for managing users in a SQLite database.
+ * Provides methods to add, delete, and validate users, as well as login functionality.
+ */
 public class SqliteUserDAO implements IUserDAO {
     private Connection connection;
 
+    /**
+     * Constructs a new SqliteUserDAO instance and ensures the users table exists.
+     */
     public SqliteUserDAO() {
         this.connection = SqliteConnection.getInstance();
         createTable();
@@ -33,6 +40,10 @@ public class SqliteUserDAO implements IUserDAO {
         }
     }
 
+    /**
+     * Deletes a user from the database by their email.
+     * @param email the email of the user to delete.
+     */
     public void deleteUserByEmail(String email) {
         String sql = "DELETE FROM users WHERE email = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -43,6 +54,10 @@ public class SqliteUserDAO implements IUserDAO {
         }
     }
 
+    /**
+     * Adds a new usser to the database
+     * @param user The user object to add.
+     */
     @Override
     public void addUser(User user) {
         try {
@@ -64,6 +79,10 @@ public class SqliteUserDAO implements IUserDAO {
         }
     }
 
+    /**
+     * Deletes a user from the database by their unique id
+     * @param user The user to delete.
+     */
     @Override
     public void deleteUser(User user) {
         try {
@@ -75,6 +94,12 @@ public class SqliteUserDAO implements IUserDAO {
         }
     }
 
+    /**
+     * Attempts to log in a user with the provided email and password.
+     * @param email the email entered
+     * @param password the password entered
+     * @return true if login is successful, false otherwise
+     */
     @Override
     public boolean loginUser(String email, String password) {
         try {
@@ -94,6 +119,11 @@ public class SqliteUserDAO implements IUserDAO {
         return false;
     }
 
+    /**
+     * Validates whether the email of the given user is unique in the database.
+     * @param user the user object whose email is to be validated
+     * @return true if the email is not already used, false otherwise
+     */
     @Override
     public boolean validateEmail(User user) {
         String userEmail = user.getEmail();

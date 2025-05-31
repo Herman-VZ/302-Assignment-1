@@ -45,8 +45,8 @@ public class MainApplication extends Application {
     /**
      * Initialises the primary stage of the application.
      * Loads the login view as the initial screen and displays the main window.
-     * @param stage
-     * @throws IOException
+     * @param stage the primary stage provided by JavaFX
+     * @throws IOException if login FXML fails to load
      */
     @Override
     public void start(Stage stage) throws IOException {
@@ -460,6 +460,10 @@ public class MainApplication extends Application {
     }
 
 
+    /**
+     * Launches the application
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
